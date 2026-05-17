@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Google_Sans_Flex } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { TopHeader } from "./components/ui/TopHeader";
 
 const googleSansFlex = Google_Sans_Flex({
   variable: "--font-google-sans-flex",
@@ -29,11 +30,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${googleSansFlex.variable} ${awesomeSerif.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${googleSansFlex.variable} ${awesomeSerif.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col">
+        <TopHeader />
+
+        <main className="my-20 max-w-400 w-full mx-auto">{children}</main>
+      </body>
     </html>
   );
 }

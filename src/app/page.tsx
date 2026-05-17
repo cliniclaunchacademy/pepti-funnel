@@ -1,8 +1,19 @@
+"use client";
+
+import Banner from "./components/landing/Banner";
+import { PageHeader } from "./components/ui/PageHeader";
+import { StatsBoard } from "./components/landing/Stats";
+import CompoundMarquee from "./components/landing/CompoundMarquee";
+
 export default function Home() {
   return (
-    <main className="">
-      <h1 className="text-3xl font-bold font-google-sans-flex">Pepti Funnel</h1>
-      <p className="text-lg  text-zinc-600 dark:text-zinc-400 font-awesome-serif">Welcome to the Pepti Funnel!</p>
-    </main>
+    <>
+      <PageHeader />
+      <Banner />
+
+      <StatsBoard />
+
+      <CompoundMarquee />
+    </>
   );
 }
