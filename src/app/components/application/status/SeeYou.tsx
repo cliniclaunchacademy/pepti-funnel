@@ -42,7 +42,14 @@ export default function SeeYou() {
         </div>
 
         <motion.div variants={slideInRight} className="absolute right-0 bottom-0 w-[600px] pointer-events-none">
-          <Image src="/see-you.png" alt="Practitioner" width={2616} height={1792} priority className="w-full h-auto" />
+          <Image
+            src="/see-you.png"
+            alt="Practitioner"
+            width={2616}
+            height={1792}
+            sizes="600px"
+            className="w-full h-auto"
+          />
         </motion.div>
       </div>
     </motion.section>

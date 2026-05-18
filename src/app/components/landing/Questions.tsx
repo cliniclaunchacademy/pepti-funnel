@@ -32,6 +32,7 @@ export default function Questions() {
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
       className="w-full flex items-center justify-center my-24"
+      id="questions"
     >
       <div className="flex items-center justify-center w-full max-w-300 gap-16">
         <motion.div variants={slideInLeft} className="shrink">
@@ -46,10 +47,7 @@ export default function Questions() {
           </motion.p>
         </motion.div>
 
-        <motion.div
-          variants={slideInRight}
-          className="min-w-125 shrink-0 grow aspect-4/3 bg-gray-400 rounded-md"
-        />
+        <motion.div variants={slideInRight} className="min-w-125 shrink-0 grow aspect-4/3 bg-gray-400 rounded-md" />
       </div>
     </motion.section>
   );

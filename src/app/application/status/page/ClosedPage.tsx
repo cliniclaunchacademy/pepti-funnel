@@ -18,7 +18,15 @@ const fadeUp: Variants = {
 export default function ClosedPage() {
   return (
     <section className="relative w-full -mt-20 -mb-32">
-      <Image src="/bg-application.png" alt="" width={6048} height={6024} priority className="w-full h-auto block" />
+      <Image
+        src="/bg-application.png"
+        alt=""
+        width={6048}
+        height={6024}
+        priority
+        sizes="100vw"
+        className="w-full h-auto block"
+      />
 
       <motion.div
         variants={container}

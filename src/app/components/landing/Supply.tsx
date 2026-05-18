@@ -34,7 +34,14 @@ export default function Supply() {
         }}
       >
         <motion.div variants={slideInLeft} className="absolute left-0 bottom-0 w-125 pointer-events-none">
-          <Image src="/doctor.png" alt="Practitioner" width={2284} height={2260} priority className="w-full h-auto" />
+          <Image
+            src="/doctor.png"
+            alt="Practitioner"
+            width={2284}
+            height={2260}
+            sizes="500px"
+            className="w-full h-auto"
+          />
         </motion.div>
 
         <div className="flex-1 text-end">

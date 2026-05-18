@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { motion, type Variants } from "framer-motion";
 import { Button } from "../ui/Button";
 import { ArrowRight } from "lucide-react";
@@ -42,6 +43,8 @@ const slideInRight: Variants = {
 const viewport = { once: true, amount: 0.3 } as const;
 
 export default function Banner() {
+  const router = useRouter();
+
   return (
     <section className="relative w-full mt-16 overflow-hidden min-h-[650px] flex justify-center">
       <motion.div
@@ -51,7 +54,15 @@ export default function Banner() {
         viewport={viewport}
         className="hidden lg:block absolute bottom-0 overflow-hidden h-[550px] left-0 w-[28%] pointer-events-none select-none"
       >
-        <Image src="/left-banner-img.png" alt="" aria-hidden width={2052} height={2916} priority />
+        <Image
+          src="/left-banner-img.png"
+          alt=""
+          aria-hidden
+          width={2052}
+          height={2916}
+          priority
+          sizes="(min-width: 1024px) 28vw, 0px"
+        />
       </motion.div>
 
       <motion.div
@@ -68,6 +79,7 @@ export default function Banner() {
           width={2052}
           height={2916}
           priority
+          sizes="(min-width: 1024px) 28vw, 0px"
           className="w-full h-auto"
         />
       </motion.div>
@@ -95,7 +107,7 @@ export default function Banner() {
         </motion.p>
 
         <motion.div variants={fadeUp}>
-          <Button size="md" className="font-normal text-black">
+          <Button size="md" className="font-normal text-black" onClick={() => router.push("#questions")}>
             Begin Application • 60 sec <ArrowRight size={24} className="ml-1" />
           </Button>
         </motion.div>

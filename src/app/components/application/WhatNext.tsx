@@ -70,20 +70,25 @@ export default function WhatNext() {
             <motion.div
               key={step.src}
               variants={item}
-              className={
+              className={`group ${
                 index === 1
                   ? "flex shrink items-center justify-center gap-4 border-x-2 border-gray-300 px-12"
                   : "flex shrink items-center justify-center gap-4"
-              }
+              }`}
             >
               <Image
                 src={step.src}
                 alt={step.alt}
                 width={300}
                 height={200}
-                priority
+                sizes="80px"
                 aria-hidden
-                className={step.imgClass}
+                className={`
+                    ${step.imgClass}
+                    transition-all duration-300 ease-out
+                    group-hover:-translate-y-2
+                    group-hover:-rotate-3
+                  `}
               />
 
               <h4 className={`font-sans text-black font-normal text-lg leading-relaxed ${step.labelClass ?? ""}`}>
