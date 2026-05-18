@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export const PageHeader = ({ theme = "dark" }: { theme: string }) => {
+export const PageHeader = ({ theme = "dark" }: { theme?: string }) => {
   return (
     <motion.header
       initial={{ opacity: 0, y: -12 }}
