@@ -39,17 +39,18 @@ Custom `@keyframes` **must live inside a `@theme` block** alongside the matching
 
 Three component buckets — keep them separate:
 
-- `src/app/components/ui/` — generic primitives and layout chrome (`Button`, `Accordion`, `PageHeader`, `TopHeader`, `Copyright`). Reusable across pages.
+- `src/app/components/ui/` — generic primitives and layout chrome (`Button`, `Accordion`, `StepList`, `PageHeader`, `TopHeader`, `Copyright`). Reusable across pages.
 - `src/app/components/landing/` — section components for the `/` route (`Banner`, `Stats`, `CompoundMarquee`, `Questions`, `Process`, `Supply`).
-- `src/app/components/application/` — section components for the `/application` route (`ApplicationSection`, `WhatNext`, `SupplyChain`, `StatsBoard`, `FAQs`). Some sections are parallel-but-distinct to their landing equivalents (e.g. `landing/Stats` vs `application/StatsBoard`) — do not consolidate; the copy and layout differ per route.
+- `src/app/components/application/` — section components for the `/application` route (`ApplicationSection`, `WhatNext`, `SupplyChain`, `StatsBoard`, `FAQs`). Nested routes get nested buckets: `/application/status` has its sections in `components/application/status/` (`SuccessApplication`, `VideoSection`, `FAQs`, `SeeYou`). Some sections are parallel-but-distinct to their landing equivalents (e.g. `landing/Stats` vs `application/StatsBoard`) — do not consolidate; the copy and layout differ per route.
 
-When a route gets its own section components, give it its own bucket under `components/` matching the route name, rather than mixing them into `landing/`.
+When a route gets its own section components, give it its own bucket under `components/` matching the route path (`/application/status` → `components/application/status/`), rather than mixing them into `landing/`.
 
 ### Class composition
 
 - `cn()` lives at `src/lib/utils.ts` (alias: `@/lib/utils`). It's `clsx` + `tailwind-merge` — use it for any component that accepts a passthrough `className`, so users can override variants cleanly (last-wins for conflicting Tailwind classes).
 - Components with variants use **`tailwind-variants`** (`tv()`), with `cn()` running over the `tv()` output to merge in the user's `className`. See `Button.tsx` for the canonical pattern: `tv()` for the variant matrix, `cn(button({ variant, size }), className)` at the render site, `VariantProps<typeof button>` for type inference.
 - For stateful interactive primitives (collapse/expand, tabs, etc.), see `Accordion.tsx`: `"use client"`, local `useState`, `AnimatePresence` + `motion.div` animating `height: 0 ↔ "auto"` with `overflow-hidden` on the wrapper. ARIA wiring (`aria-expanded`, `aria-controls`, `aria-labelledby`, `role="region"`) belongs on the primitive, not the consumer.
+- For hover-only interactive primitives (no toggle state — just visual reactions to pointer), stay a server component and use Tailwind's `group` + `group-hover:*` + `transition-colors duration-N`. See `StepList.tsx`: the row is a `group`, the number inside swaps from `text-beige-primary` to `text-black` on `group-hover:`. No JS shipped.
 
 ### Server vs client components
 
@@ -69,6 +70,7 @@ App Router defaults to server components — keep them server-rendered unless th
 ## Layout
 
 - `src/app/layout.tsx` is the root layout. It loads the two fonts (Google Sans Flex + local Awesome Serif), exposes them as CSS variables on `<html>`, and renders `<TopHeader />` plus a `<main className="mt-20 max-w-400 w-full mx-auto">` that wraps `{children}` and `<Copyright />`. The `Copyright` footer is rendered inside `<main>`, not as a sibling — keep it that way so it inherits the centered max-width container.
-- Routes live directly under `src/app/`: `/` is `page.tsx`, `/application` is `application/page.tsx`. Each route composes section components from its own bucket (`components/landing/` for `/`, `components/application/` for `/application`) plus shared chrome from `components/ui/`.
+- Routes live directly under `src/app/`: `/` is `page.tsx`, `/application` is `application/page.tsx`, `/application/status` is `application/status/page.tsx`. Each route composes section components from its own bucket plus shared chrome from `components/ui/`.
+- **`searchParams` is async in Next.js 16.** Server-component pages receive `searchParams: Promise<{ [key: string]: string | string[] | undefined }>` and must `await` it. See `application/status/page.tsx` — it awaits the promise, reads `?status=`, and dispatches to one of the per-branch sub-pages in the sibling `page/` directory (`SuccessPage.tsx`, `ClosedPage.tsx`). Prefer this dispatcher pattern over a `"use client"` page that calls `useSearchParams` — the page stays a server component and the per-branch sub-pages can mix server/client as needed.
 - `public/` holds static assets served at `/`. Prefer `next/image` with intrinsic `width`/`height` props (real source dimensions) plus `className="w-... h-auto"` for display sizing — Next.js needs intrinsic dimensions to prevent CLS and to pick the right optimized variant.
 - For bespoke gradients that don't match `bg-beige-gradient` (which is the 90deg `#F2D6A2 → #A87C3D` brand gradient), apply an inline `style={{ backgroundImage: "linear-gradient(...)" }}` rather than adding one-off Tailwind classes or new `@utility` declarations. See `Supply.tsx` for a 225deg variant.
