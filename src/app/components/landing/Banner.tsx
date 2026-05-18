@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import { Button } from "../ui/Button";
+import { ArrowRight } from "lucide-react";
 
 const textContainer: Variants = {
   hidden: {},
@@ -95,7 +96,7 @@ export default function Banner() {
 
         <motion.div variants={fadeUp}>
           <Button size="md" className="font-normal text-black">
-            Begin Application • 60 sec{" "}
+            Begin Application • 60 sec <ArrowRight size={24} className="ml-1" />
           </Button>
         </motion.div>
 
