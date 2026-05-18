@@ -3,6 +3,7 @@ import { Google_Sans_Flex } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { TopHeader } from "./components/ui/TopHeader";
+import Copyright from "./components/ui/Copyright";
 
 const googleSansFlex = Google_Sans_Flex({
   variable: "--font-google-sans-flex",
@@ -34,7 +35,10 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <TopHeader />
 
-        <main className="my-20 max-w-400 w-full mx-auto">{children}</main>
+        <main className="mt-20 max-w-400 w-full mx-auto">
+          <>{children}</>
+          <Copyright />
+        </main>
       </body>
     </html>
   );
