@@ -39,8 +39,8 @@ Custom `@keyframes` **must live inside a `@theme` block** alongside the matching
 
 Two component buckets — keep them separate:
 
-- `src/app/components/ui/` — generic primitives (`Button`, `PageHeader`, `TopHeader`). Reusable across pages.
-- `src/app/components/landing/` — page-section components (`Banner`, `Stats`, `CompoundMarquee`, `Questions`). Composed in routes.
+- `src/app/components/ui/` — generic primitives and layout chrome (`Button`, `PageHeader`, `TopHeader`, `Copyright`). Reusable across pages.
+- `src/app/components/landing/` — page-section components (`Banner`, `Stats`, `CompoundMarquee`, `Questions`, `Process`, `Supply`). Composed in routes.
 
 ### Class composition
 
@@ -60,8 +60,10 @@ App Router defaults to server components — keep them server-rendered unless th
 - For scroll-triggered entrances, use `whileInView` with `viewport={{ once: true, amount: 0.2–0.4 }}` so the animation runs both on initial-paint-in-view and on scroll-into-view.
 - For on-load-only animations (elements always at the top of the page, like `PageHeader`), use `animate` with a small `delay`.
 - For grids/lists of children that should stagger, put `staggerChildren` on a parent variant and a per-child `variants` definition. To give each child a different starting offset, use a function variant + the `custom` prop (see `Stats.tsx` for the corner-offset pattern).
+- Not every section animates. `TopHeader` is intentionally a static server component — the top promo strip should appear with the initial paint, not animate in. Treat sticky/global chrome as the exception when "animate everything."
 
 ## Layout
 
-- `src/app/layout.tsx` is the root layout. It loads the two fonts (Google Sans Flex + local Awesome Serif), exposes them as CSS variables on `<html>`, and renders `<TopHeader />` + `<main>{children}</main>` in a flex column body. New pages live under `src/app/`.
+- `src/app/layout.tsx` is the root layout. It loads the two fonts (Google Sans Flex + local Awesome Serif), exposes them as CSS variables on `<html>`, and renders `<TopHeader />` plus a `<main className="mt-20 max-w-400 w-full mx-auto">` that wraps `{children}` and `<Copyright />`. The `Copyright` footer is rendered inside `<main>`, not as a sibling — keep it that way so it inherits the centered max-width container. New pages live under `src/app/`.
 - `public/` holds static assets served at `/`. Prefer `next/image` with intrinsic `width`/`height` props (real source dimensions) plus `className="w-... h-auto"` for display sizing — Next.js needs intrinsic dimensions to prevent CLS and to pick the right optimized variant.
+- For bespoke gradients that don't match `bg-beige-gradient` (which is the 90deg `#F2D6A2 → #A87C3D` brand gradient), apply an inline `style={{ backgroundImage: "linear-gradient(...)" }}` rather than adding one-off Tailwind classes or new `@utility` declarations. See `Supply.tsx` for a 225deg variant.
