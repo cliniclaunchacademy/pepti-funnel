@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export const PageHeader = () => {
+export const PageHeader = ({ theme = "dark" }: { theme: string }) => {
   return (
     <motion.header
       initial={{ opacity: 0, y: -12 }}
@@ -12,7 +12,7 @@ export const PageHeader = () => {
       className="flex items-center justify-center"
     >
       <Image
-        src="/peptipharma-logo.png"
+        src={`/logo-${theme}.png`}
         alt="PeptiPharma"
         width={900}
         height={142}
