@@ -43,24 +43,26 @@ export default function FAQs() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
-      className="w-full flex items-center justify-center my-32"
+      className="w-full flex items-center justify-center my-16 lg:my-32 px-6 lg:px-0"
     >
-      <div className="w-full max-w-300 flex gap-16 items-start">
-        <motion.div variants={slideInLeft} className="shrink w-auto pt-8">
-          <p className="font-sans text-black text-sm tracking-[0.4rem] uppercase">Frequently Asked</p>
+      <div className="w-full max-w-300 flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
+        <motion.div variants={slideInLeft} className="shrink w-full lg:w-auto lg:pt-8">
+          <p className="font-sans text-black text-xs lg:text-sm tracking-[0.3rem] lg:tracking-[0.4rem] uppercase">
+            Frequently Asked
+          </p>
 
-          <h2 className="mt-4 font-sans text-7xl text-black font-medium leading-none">
+          <h2 className="mt-3 lg:mt-4 font-sans text-4xl lg:text-7xl text-black font-medium leading-none">
             The fine print,
             <br />
             <span className="text-beige-gradient font-awesome-serif italic">up front.</span>
           </h2>
 
-          <p className="mt-8 font-sans text-black text-lg leading-relaxed max-w-sm">
+          <p className="mt-4 lg:mt-8 font-sans text-black text-base lg:text-lg leading-relaxed max-w-sm">
             If your question isn’t here, your account manager will cover it on the call.
           </p>
         </motion.div>
 
-        <motion.div variants={slideInRight} className="grow flex-1 shrink-0">
+        <motion.div variants={slideInRight} className="w-full lg:grow lg:flex-1 lg:shrink-0">
           <Accordion items={faqs} defaultOpenIndex={0} className="w-full" />
         </motion.div>
       </div>

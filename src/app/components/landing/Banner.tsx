@@ -46,7 +46,7 @@ export default function Banner() {
   const router = useRouter();
 
   return (
-    <section className="relative w-full mt-16 overflow-hidden min-h-[650px] flex justify-center">
+    <section className="relative w-full mt-8 lg:mt-16 px-6 lg:px-0 overflow-hidden min-h-[420px] lg:min-h-[650px] flex justify-center">
       <motion.div
         variants={slideInLeft}
         initial="hidden"
@@ -94,16 +94,17 @@ export default function Banner() {
         initial="hidden"
         whileInView="show"
         viewport={viewport}
-        className="relative z-10 flex flex-col gap-6 items-center text-center w-7xl mx-auto"
+        className="relative z-10 flex flex-col gap-4 lg:gap-6 items-center text-center w-full max-w-7xl mx-auto"
       >
-        <motion.h1 variants={fadeUp} className="font-sans text-7xl text-black font-medium">
-          The peptide supplier powering <br />{" "}
+        <motion.h1 variants={fadeUp} className="font-sans text-4xl lg:text-7xl text-black font-medium">
+          The peptide supplier powering <span className="hidden lg:inline"><br /></span>{" "}
           <span className="text-beige-gradient font-awesome-serif italic pr-2">2,000+ Clinics</span> nationwide.
         </motion.h1>
 
-        <motion.p variants={fadeUp} className="font-sans text-black font-normal text-xl">
-          80+ pharmaceutical-grade peptides. 2-day fulfilment. 99.9% purity, COA on <br /> every batch. Built for
-          licensed clinics, med spas, and practitioners.
+        <motion.p variants={fadeUp} className="font-sans text-black font-normal text-base lg:text-xl">
+          80+ pharmaceutical-grade peptides. 2-day fulfilment. 99.9% purity, COA on{" "}
+          <span className="hidden lg:inline"><br /></span> every batch. Built for licensed clinics, med spas, and
+          practitioners.
         </motion.p>
 
         <motion.div variants={fadeUp}>
@@ -112,7 +113,7 @@ export default function Banner() {
           </Button>
         </motion.div>
 
-        <motion.p variants={fadeUp} className="font-sans text-black font-normal text-xs tracking-[0.3em]">
+        <motion.p variants={fadeUp} className="font-sans text-black font-normal text-[10px] lg:text-xs tracking-[0.3em]">
           For licensed practices only
         </motion.p>
       </motion.div>

@@ -20,9 +20,11 @@ export default function CompoundMarquee() {
       <div className="flex w-max animate-marquee items-center">
         {loop.map((item, index) => (
           <React.Fragment key={`${item}-${index}`}>
-            <span className="shrink-0 px-4 font-sans text-lg font-light tracking-tight text-beige-primary">{item}</span>
+            <span className="shrink-0 px-3 lg:px-4 font-sans text-sm lg:text-lg font-light tracking-tight text-beige-primary">
+              {item}
+            </span>
             {index !== loop.length - 1 && (
-              <span className="shrink-0 font-sans text-2xl text-beige-primary" aria-hidden>
+              <span className="shrink-0 font-sans text-xl lg:text-2xl text-beige-primary" aria-hidden>
                 •
               </span>
             )}

@@ -25,23 +25,29 @@ export default function SeeYou() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
-      className="w-full flex items-center justify-center my-32 mt-40 px-4"
+      className="w-full flex items-center justify-center my-16 lg:my-32 lg:mt-40 px-4"
     >
       <div
-        className="relative w-full max-w-300 rounded-4xl pl-16 pr-125 py-8 min-h-72 flex items-center"
+        className="relative w-full max-w-300 rounded-3xl lg:rounded-4xl px-6 py-10 lg:pl-16 lg:pr-125 lg:py-8 min-h-72 flex items-center"
         style={{
           backgroundImage: "linear-gradient(225deg, #4C453C 0%, #000000 100%)",
         }}
       >
         <div className="flex-1">
-          <motion.h2 variants={fadeUp} className="font-sans text-9xl text-beige-primary font-medium leading-none">
+          <motion.h2
+            variants={fadeUp}
+            className="font-sans text-5xl lg:text-9xl text-beige-primary font-medium leading-none text-center lg:text-left"
+          >
             See you on
             <br />
             the call!
           </motion.h2>
         </div>
 
-        <motion.div variants={slideInRight} className="absolute right-0 bottom-0 w-[600px] pointer-events-none">
+        <motion.div
+          variants={slideInRight}
+          className="hidden lg:block absolute right-0 bottom-0 w-[600px] pointer-events-none"
+        >
           <Image
             src="/see-you.png"
             alt="Practitioner"

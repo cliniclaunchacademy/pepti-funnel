@@ -55,25 +55,25 @@ export default function WhatNext() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
-      className="w-full flex items-center justify-center my-24"
+      className="w-full flex items-center justify-center my-16 lg:my-24 px-6 lg:px-0"
     >
       <div className="flex items-center justify-center flex-col w-full max-w-300">
         <motion.h2
           variants={heading}
-          className="font-sans text-black font-normal text-xl tracking-[0.4rem] leading-none uppercase"
+          className="font-sans text-black font-normal text-base lg:text-xl tracking-[0.3rem] lg:tracking-[0.4rem] leading-none uppercase text-center"
         >
           Here’s what happens next
         </motion.h2>
 
-        <div className="flex items-center justify-center w-full py-12 pt-8 gap-8">
+        <div className="flex flex-col lg:flex-row items-center justify-center w-full py-8 lg:py-12 lg:pt-8 gap-6 lg:gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={step.src}
               variants={item}
-              className={`group ${
+              className={`group flex shrink items-center justify-center gap-4 ${
                 index === 1
-                  ? "flex shrink items-center justify-center gap-4 border-x-2 border-gray-300 px-12"
-                  : "flex shrink items-center justify-center gap-4"
+                  ? "border-y-2 lg:border-y-0 lg:border-x-2 border-gray-300 py-6 px-0 lg:py-0 lg:px-12 w-full lg:w-auto"
+                  : ""
               }`}
             >
               <Image
@@ -91,7 +91,11 @@ export default function WhatNext() {
                   `}
               />
 
-              <h4 className={`font-sans text-black font-normal text-lg leading-relaxed ${step.labelClass ?? ""}`}>
+              <h4
+                className={`font-sans text-black font-normal text-base lg:text-lg leading-relaxed ${
+                  step.labelClass ?? ""
+                }`}
+              >
                 {step.label}
               </h4>
             </motion.div>

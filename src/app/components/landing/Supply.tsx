@@ -25,15 +25,18 @@ export default function Supply() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
-      className="w-full flex items-center justify-center my-24 px-4"
+      className="w-full flex items-center justify-center my-16 lg:my-24 px-4"
     >
       <div
-        className="relative w-full max-w-300 rounded-2xl pl-105 pr-16 py-11 min-h-72 flex items-center"
+        className="relative w-full max-w-300 rounded-2xl px-6 py-8 lg:pl-105 lg:pr-16 lg:py-11 min-h-72 flex items-center"
         style={{
           backgroundImage: "linear-gradient(225deg, #FFEFD1 0%, #D8B98F 100%)",
         }}
       >
-        <motion.div variants={slideInLeft} className="absolute left-0 bottom-0 w-125 pointer-events-none">
+        <motion.div
+          variants={slideInLeft}
+          className="hidden lg:block absolute left-0 bottom-0 w-125 pointer-events-none"
+        >
           <Image
             src="/doctor.png"
             alt="Practitioner"
@@ -44,14 +47,17 @@ export default function Supply() {
           />
         </motion.div>
 
-        <div className="flex-1 text-end">
-          <motion.h2 variants={fadeUp} className="font-sans text-7xl text-end text-black font-medium leading-none">
+        <div className="flex-1 text-center lg:text-end">
+          <motion.h2
+            variants={fadeUp}
+            className="font-sans text-4xl lg:text-7xl text-center lg:text-end text-black font-medium leading-none"
+          >
             A supply chain built for <span className="font-sans font-semibold italic">practitioners.</span>
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="mt-6 max-w-lg tracking-wider ml-auto font-sans text-black text-xl leading-snug"
+            className="mt-4 lg:mt-6 max-w-lg tracking-wider mx-auto lg:mx-0 lg:ml-auto font-sans text-black text-base lg:text-xl leading-snug"
           >
             We don’t ship to patients. Every gram is manufactured under GMP in the US and routed through
             chain-of-custody to clinics only.

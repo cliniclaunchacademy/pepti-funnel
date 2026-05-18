@@ -60,7 +60,7 @@ export const Accordion = ({ items, defaultOpenIndex = null, className }: Accordi
               onClick={() => setOpenIndex(isOpen ? null : index)}
               className="flex w-full items-center justify-between gap-6 text-left cursor-pointer"
             >
-              <span className="font-awesome-serif italic text-2xl text-black">{item.question}</span>
+              <span className="font-awesome-serif italic text-lg lg:text-2xl text-black">{item.question}</span>
               <span className="shrink-0 text-black">
                 <PlusIcon open={isOpen} />
               </span>

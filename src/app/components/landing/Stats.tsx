@@ -55,17 +55,18 @@ const viewport = { once: true, amount: 0.2 } as const;
 
 export function StatsBoard() {
   return (
-    <section className="w-full flex items-center justify-center my-24">
+    <section className="w-full flex items-center justify-center my-16 lg:my-24 px-6 lg:px-0">
       <motion.div
         variants={grid}
         initial="hidden"
         whileInView="show"
         viewport={viewport}
-        className="grid grid-cols-1 md:grid-cols-2 w-full max-w-300"
+        className="grid grid-cols-1 lg:grid-cols-2 w-full max-w-300"
       >
         {stats.map((stat, index) => {
           const isLeftColumn = index % 2 === 0;
           const isTopRow = index < 2;
+          const isLast = index === stats.length - 1;
 
           return (
             <motion.div
@@ -73,17 +74,18 @@ export function StatsBoard() {
               variants={tile}
               custom={cornerOffsets[index]}
               className={`
-                flex items-center gap-12 px-6 py-8 md:px-10 md:py-10
-                ${isLeftColumn ? "md:border-r md:pl-0" : "md:pr-0 md:pl-20"}
-                ${isTopRow ? "border-b md:border-b md:pt-0" : "md:pb-0"}
+                flex items-center gap-6 lg:gap-12 px-4 py-6 lg:px-10 lg:py-10
+                ${isTopRow ? "border-b" : !isLast ? "border-b lg:border-b-0" : ""}
+                ${isLeftColumn ? "lg:border-r lg:pl-0" : "lg:pr-0 lg:pl-20"}
+                ${isTopRow ? "lg:pt-0" : "lg:pb-0"}
                 border-[#858585]
               `}
             >
-              <h2 className="text-6xl md:text-7xl leading-none font-medium font-sans text-[#E0BB83]">{stat.value}</h2>
+              <h2 className="text-5xl lg:text-7xl leading-none font-medium font-sans text-[#E0BB83]">{stat.value}</h2>
 
               <div className="flex flex-col leading-[0.95]">
                 {stat.label.map((line) => (
-                  <span key={line} className="text-xl md:text-3xl font-semibold tracking-tight text-black uppercase">
+                  <span key={line} className="text-lg lg:text-3xl font-semibold tracking-tight text-black uppercase">
                     {line}
                   </span>
                 ))}

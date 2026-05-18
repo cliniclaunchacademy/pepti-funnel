@@ -17,8 +17,8 @@ export const PageHeader = ({ theme = "dark" }: { theme?: string }) => {
         width={900}
         height={142}
         priority
-        sizes="450px"
-        className="w-112.5 h-auto"
+        sizes="(min-width: 1024px) 450px, 280px"
+        className="w-72 lg:w-112.5 h-auto"
       />
     </motion.header>
   );

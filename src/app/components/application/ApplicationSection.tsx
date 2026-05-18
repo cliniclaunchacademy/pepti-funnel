@@ -33,26 +33,31 @@ export default function ApplicationSection() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
-      className="w-full flex items-center justify-center my-24"
+      className="w-full flex items-center justify-center my-16 lg:my-24 px-6 lg:px-0"
     >
-      <div className="flex items-center justify-center w-full max-w-300 gap-24">
-        <motion.div variants={slideInLeft} className="shrink">
-          <Button className="mb-6 flex items-center font-normal gap-1">
+      <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-300 gap-8 lg:gap-24">
+        <motion.div variants={slideInLeft} className="shrink text-center lg:text-left">
+          <Button className="mb-4 lg:mb-6 flex items-center font-normal gap-1 mx-auto lg:mx-0">
             Application Received <CircleCheck fill="#000" color="#fff1d9" />
           </Button>
-          <motion.h1 variants={fadeUp} className="font-sans text-7xl text-black font-medium">
+          <motion.h1 variants={fadeUp} className="font-sans text-4xl lg:text-7xl text-black font-medium">
             Your application is in.
-            <span className="text-beige-gradient font-awesome-serif italic pr-2"> Here’s what</span>{" "}
-            <span className="text-beige-gradient font-awesome-serif italic pr-2"> happens next.</span>
+            <span className="text-beige-gradient font-awesome-serif italic pr-2">
+              {" "}
+              Here’s <span className="mr-2">what</span> <span className="mr-2">happens</span> next.
+            </span>
           </motion.h1>
 
-          <motion.p variants={fadeUp} className="mt-6 font-sans text-black text-xl">
+          <motion.p variants={fadeUp} className="mt-4 lg:mt-6 font-sans text-black text-base lg:text-xl">
             Book your account setup call. 30 minutes — we confirm your practice details, walk you through our catalog,
             and get your account live.
           </motion.p>
         </motion.div>
 
-        <motion.div variants={slideInRight} className="min-w-125 shrink-0 grow aspect-4/3 bg-gray-400 rounded-md" />
+        <motion.div
+          variants={slideInRight}
+          className="w-full lg:w-auto lg:min-w-125 lg:shrink-0 lg:grow aspect-4/3 bg-gray-400 rounded-md"
+        />
       </div>
     </motion.section>
   );

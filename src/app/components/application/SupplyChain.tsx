@@ -25,15 +25,18 @@ export default function SupplyChain() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
-      className="w-full flex items-center justify-center my-24 px-4"
+      className="w-full flex items-center justify-center my-16 lg:my-24 px-4"
     >
       <div
-        className="relative w-full max-w-300 rounded-2xl pl-120 pr-16 py-11 min-h-72 flex items-center"
+        className="relative w-full max-w-300 rounded-2xl px-6 py-8 lg:pl-120 lg:pr-16 lg:py-11 min-h-72 flex items-center"
         style={{
           backgroundImage: "linear-gradient(225deg, #FFEFD1 0%, #D8B98F 100%)",
         }}
       >
-        <motion.div variants={slideInLeft} className="absolute left-0 bottom-0 w-125 pointer-events-none">
+        <motion.div
+          variants={slideInLeft}
+          className="hidden lg:block absolute left-0 bottom-0 w-125 pointer-events-none"
+        >
           <Image
             src="/doctor.png"
             alt="Practitioner"
@@ -44,14 +47,17 @@ export default function SupplyChain() {
           />
         </motion.div>
 
-        <div className="flex-1 text-end">
-          <motion.h2 variants={fadeUp} className="font-sans text-6xl text-end text-black font-medium leading-none">
+        <div className="flex-1 text-center lg:text-end">
+          <motion.h2
+            variants={fadeUp}
+            className="font-sans text-3xl lg:text-6xl text-center lg:text-end text-black font-medium leading-none"
+          >
             Supply chain that doesn’t go quiet when patients are waiting.
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="mt-6 max-w-lg tracking-wider ml-auto font-sans text-black text-xl leading-snug"
+            className="mt-4 lg:mt-6 max-w-lg tracking-wider mx-auto lg:mx-0 lg:ml-auto font-sans text-black text-base lg:text-xl leading-snug"
           >
             Every batch is third-party tested. Every order moves with chain-of-custody from a single GMP facility in the
             US. Every clinic gets a real account manager — not a ticket queue.
