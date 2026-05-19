@@ -42,7 +42,7 @@ export default function ApplicationSection() {
           </Button>
           <motion.h1 variants={fadeUp} className="font-sans text-4xl lg:text-7xl text-black font-medium">
             Your application is in.
-            <span className="text-beige-gradient font-awesome-serif italic pr-2">
+            <span className="text-beige-gradient font-sans italic pr-2">
               {" "}
               Here’s <span className="mr-2">what</span> <span className="mr-2">happens</span> next.
             </span>

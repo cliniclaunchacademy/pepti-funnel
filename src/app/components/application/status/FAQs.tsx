@@ -1,24 +1,48 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { BadgeCheck, Layers, ThumbsUp } from "lucide-react";
+import Image from "next/image";
 import { StepList, type StepListItem } from "../../ui/StepList";
 
 const steps: StepListItem[] = [
   {
     title: "Verify your practice details",
     subtitle: "and get your account activated",
-    icon: <BadgeCheck className="size-9 lg:size-12" fill="#000" color="#fff1d9" strokeWidth={1.5} />,
+    icon: (
+      <Image
+        src="/Verification-Icon.svg"
+        alt=""
+        width={48}
+        height={48}
+        className="size-9 lg:size-12"
+      />
+    ),
   },
   {
     title: "Walk the full catalog",
     subtitle: "80+ peptides, pricing tiers, shipping timelines",
-    icon: <Layers className="size-9 lg:size-12" strokeWidth={2} />,
+    icon: (
+      <Image
+        src="/Catalog-Icon.svg"
+        alt=""
+        width={48}
+        height={48}
+        className="size-9 lg:size-12"
+      />
+    ),
   },
   {
     title: "Place your first order",
     subtitle: "and lock in your supply chain",
-    icon: <ThumbsUp className="size-9 lg:size-12" fill="#000" strokeWidth={1.5} />,
+    icon: (
+      <Image
+        src="/Touch-Icon.svg"
+        alt=""
+        width={48}
+        height={48}
+        className="size-9 lg:size-12"
+      />
+    ),
   },
 ];
 

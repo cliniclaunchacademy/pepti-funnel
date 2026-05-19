@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const compounds = ["BPC-157", "CJC-1295 / IPAMORELIN", "GLP-1 ANALOG", "STB-500GHK-CU", "SEMAX", "EPITHALON"];
+const compounds = ["BPC-157", "CJC-1295 / IPAMORELIN", "GLP-1 ANALOG", "STB-500", "GHK-CU", "SEMAX", "EPITHALON"];
 
 export default function CompoundMarquee() {
   // duplicate so translateX(-50%) loops seamlessly

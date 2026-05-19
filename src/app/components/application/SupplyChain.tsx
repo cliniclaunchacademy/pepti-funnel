@@ -57,7 +57,7 @@ export default function SupplyChain() {
 
           <motion.p
             variants={fadeUp}
-            className="mt-4 lg:mt-6 max-w-lg tracking-wider mx-auto lg:mx-0 lg:ml-auto font-sans text-black text-base lg:text-xl leading-snug"
+            className="mt-4 lg:mt-6 max-w-lg mx-auto lg:mx-0 lg:ml-auto font-sans text-black text-base lg:text-xl leading-snug"
           >
             Every batch is third-party tested. Every order moves with chain-of-custody from a single GMP facility in the
             US. Every clinic gets a real account manager — not a ticket queue.

@@ -41,7 +41,7 @@ export default function SuccessApplication() {
             Booked <CircleCheck fill="#000" color="#fff1d9" />
           </Button>
           <motion.h1 variants={fadeUp} className="font-sans text-3xl lg:text-6xl text-black font-medium">
-            <span className="text-beige-gradient font-awesome-serif italic pr-2">You’re booked.</span>
+            <span className="text-beige-gradient font-sans italic pr-2">You’re booked.</span>
             <br />
             Here’s how to make the most of your account setup call.
           </motion.h1>

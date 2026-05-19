@@ -57,7 +57,7 @@ export default function Supply() {
 
           <motion.p
             variants={fadeUp}
-            className="mt-4 lg:mt-6 max-w-lg tracking-wider mx-auto lg:mx-0 lg:ml-auto font-sans text-black text-base lg:text-xl leading-snug"
+            className="mt-4 lg:mt-6 max-w-lg mx-auto lg:mx-0 lg:ml-auto font-sans text-black text-base lg:text-xl leading-snug"
           >
             We don’t ship to patients. Every gram is manufactured under GMP in the US and routed through
             chain-of-custody to clinics only.
