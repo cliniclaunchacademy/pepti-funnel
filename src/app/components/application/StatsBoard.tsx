@@ -76,7 +76,7 @@ export default function StatsBoard() {
               className={`
                 flex items-center gap-6 lg:gap-12 px-4 py-6 lg:px-10 lg:py-10
                 ${isTopRow ? "border-b" : !isLast ? "border-b lg:border-b-0" : ""}
-                ${isLeftColumn ? "lg:border-r lg:pl-0" : "lg:pr-0 lg:pl-20"}
+                ${isLeftColumn ? "lg:border-r lg:pl-0" : "lg:pr-0 lg:pl-40"}
                 ${isTopRow ? "lg:pt-0" : "lg:pb-0"}
                 border-[#858585]
               `}
