@@ -15,7 +15,7 @@ const button = tv({
     },
     size: {
       sm: "h-8 px-3 text-sm",
-      md: "h-10 px-5 text-base",
+      md: "h-auto py-1.5 lg:py-0 lg:h-10 px-3 lg:px-5 text-xs lg:text-base",
       lg: "h-12 px-6 text-lg",
       icon: "h-10 w-10",
     },

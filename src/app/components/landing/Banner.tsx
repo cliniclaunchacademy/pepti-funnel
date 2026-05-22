@@ -46,13 +46,13 @@ export default function Banner() {
   const router = useRouter();
 
   return (
-    <section className="relative w-full mt-8 lg:mt-16 px-6 lg:px-0 overflow-hidden min-h-[420px] lg:min-h-[650px] flex justify-center">
+    <section className="relative w-full mt-8 lg:mt-16 px-10 lg:px-0 overflow-hidden min-h-[460px] lg:min-h-162.5 flex justify-center">
       <motion.div
         variants={slideInLeft}
         initial="hidden"
         whileInView="show"
         viewport={viewport}
-        className="hidden lg:block absolute bottom-0 overflow-hidden h-[550px] left-0 w-[28%] pointer-events-none select-none"
+        className="absolute bottom-0 overflow-hidden h-57.5 lg:h-137.5 left-0 w-auto lg:w-[28%] pointer-events-none select-none"
       >
         <Image
           src="/left-banner-img.png"
@@ -61,7 +61,8 @@ export default function Banner() {
           width={2052}
           height={2916}
           priority
-          sizes="(min-width: 1024px) 28vw, 0px"
+          sizes="(min-width: 1024px) 28vw, 40vw"
+          className="w-full h-full object-cover object-top"
         />
       </motion.div>
 
@@ -70,7 +71,7 @@ export default function Banner() {
         initial="hidden"
         whileInView="show"
         viewport={viewport}
-        className="hidden lg:block absolute bottom-0 overflow-hidden h-[550px] right-0 w-[28%] pointer-events-none select-none"
+        className="absolute bottom-0 overflow-hidden h-57.5 lg:h-137.5 right-0 w-auto lg:w-[28%] pointer-events-none select-none"
       >
         <Image
           src="/right-banner-img.png"
@@ -79,14 +80,14 @@ export default function Banner() {
           width={2052}
           height={2916}
           priority
-          sizes="(min-width: 1024px) 28vw, 0px"
-          className="w-full h-auto"
+          sizes="(min-width: 1024px) 28vw, 40vw"
+          className="w-full h-full object-cover object-top"
         />
       </motion.div>
 
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-white to-transparent z-[5]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 lg:h-20 h-10 bg-linear-to-t from-white to-transparent z-5"
       />
 
       <motion.div
@@ -94,17 +95,20 @@ export default function Banner() {
         initial="hidden"
         whileInView="show"
         viewport={viewport}
-        className="relative z-10 flex flex-col gap-4 lg:gap-6 items-center text-center w-full max-w-7xl mx-auto"
+        className="relative z-10 flex flex-col gap-6 lg:gap-6 items-center text-center w-full max-w-7xl mx-auto"
       >
-        <motion.h1 variants={fadeUp} className="font-sans text-4xl lg:text-7xl text-black font-medium">
+        <motion.h1 variants={fadeUp} className="font-sans text-[34px] leading-[1.1] lg:text-7xl text-black font-medium">
           The peptide supplier powering{" "}
-          <span className="hidden lg:inline">
+          <span className="inline">
             <br />
           </span>{" "}
-          <span className="text-beige-gradient font-awesome-serif italic pr-2">2,000+ Clinics</span> nationwide.
+          <span className="text-beige-gradient font-sans font-bold lg:font-normal lg:font-awesome-serif italic pr-2">
+            2,000+ Clinics
+          </span>{" "}
+          nationwide.
         </motion.h1>
 
-        <motion.p variants={fadeUp} className="font-sans text-black font-normal text-base lg:text-xl">
+        <motion.p variants={fadeUp} className="font-sans text-black font-normal text-xs lg:text-xl">
           80+ pharmaceutical-grade peptides. 2-day fulfilment. 99.9% purity, COA on{" "}
           <span className="hidden lg:inline">
             <br />
@@ -112,18 +116,20 @@ export default function Banner() {
           every batch. Built for licensed clinics, med spas, and practitioners.
         </motion.p>
 
-        <motion.div variants={fadeUp}>
-          <Button size="md" className="font-normal text-black" onClick={() => router.push("#questions")}>
-            Begin Application • 60 sec <ArrowRight size={24} className="ml-1" />
-          </Button>
-        </motion.div>
+        <div className="space-y-2 lg:space-y-4">
+          <motion.div variants={fadeUp}>
+            <Button size="md" className="font-normal text-black" onClick={() => router.push("#questions")}>
+              Begin Application • 60 sec <ArrowRight size={24} className="ml-1 h-4 w-4 md:h-6 md:w-6" />
+            </Button>
+          </motion.div>
 
-        <motion.p
-          variants={fadeUp}
-          className="font-sans text-black font-normal text-[10px] lg:text-xs tracking-[0.3em] uppercase"
-        >
-          For licensed practices only
-        </motion.p>
+          <motion.p
+            variants={fadeUp}
+            className="font-sans text-black font-normal text-[6px] lg:text-[10px] lg:text-xs lg:tracking-[0.3em] uppercase"
+          >
+            For licensed practices only
+          </motion.p>
+        </div>
       </motion.div>
     </section>
   );

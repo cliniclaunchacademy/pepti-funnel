@@ -17,7 +17,16 @@ const fadeUp: Variants = {
 
 export default function ClosedPage() {
   return (
-    <section className="relative w-full -mt-10 lg:-mt-20 -mb-16 lg:-mb-32 bg-black">
+    <section className="relative w-full min-h-screen -mt-10 lg:-mt-20 -mb-16 lg:-mb-32 bg-black">
+      <Image
+        src="/mobile-bg-application.png"
+        alt=""
+        width={1608}
+        height={3080}
+        priority
+        sizes="100vw"
+        className="absolute inset-0 w-full h-full object-cover block lg:hidden"
+      />
       <Image
         src="/bg-application.png"
         alt=""
@@ -25,14 +34,14 @@ export default function ClosedPage() {
         height={6024}
         priority
         sizes="100vw"
-        className="absolute inset-0 w-full h-full object-cover lg:relative lg:inset-auto lg:h-auto block"
+        className="hidden lg:block lg:absolute lg:inset-0 lg:w-full lg:h-full lg:object-cover"
       />
 
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative lg:absolute lg:inset-0 flex flex-col items-center text-center px-6 py-12 lg:pt-12 lg:pb-0"
+        className="relative lg:absolute lg:inset-0 min-h-screen lg:min-h-0 flex flex-col items-center text-center px-6 py-12 lg:pt-12 lg:pb-0"
       >
         <motion.div variants={fadeUp} className="mt-2 lg:mt-10">
           <PageHeader theme="light" />

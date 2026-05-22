@@ -28,36 +28,36 @@ export default function Supply() {
       className="w-full flex items-center justify-center my-16 lg:my-24 px-4"
     >
       <div
-        className="relative w-full max-w-300 rounded-2xl px-6 py-8 lg:pl-105 lg:pr-16 lg:py-11 min-h-72 flex items-center"
+        className="relative w-full max-w-300 rounded-2xl pl-25 pr-4 py-6 lg:pl-105 lg:pr-16 lg:py-11 lg:min-h-72 flex items-center overflow-hidden lg:overflow-visible"
         style={{
           backgroundImage: "linear-gradient(225deg, #FFEFD1 0%, #D8B98F 100%)",
         }}
       >
         <motion.div
           variants={slideInLeft}
-          className="hidden lg:block absolute left-0 bottom-0 w-125 pointer-events-none"
+          className="absolute left-0 top-auto bottom-0 w-45 lg:top-auto lg:bottom-0 lg:w-125 lg:h-auto pointer-events-none"
         >
           <Image
             src="/doctor.png"
             alt="Practitioner"
             width={2284}
             height={2260}
-            sizes="500px"
-            className="w-full h-auto"
+            sizes="(min-width: 1024px) 500px, 34vw"
+            className="w-full h-full object-cover object-top lg:h-auto"
           />
         </motion.div>
 
-        <div className="flex-1 text-center lg:text-end">
+        <div className="flex-1 text-end">
           <motion.h2
             variants={fadeUp}
-            className="font-sans text-4xl lg:text-7xl text-center lg:text-end text-black font-medium leading-none"
+            className="font-sans text-2xl lg:text-7xl text-end text-black font-medium leading-none lg:leading-none"
           >
             A supply chain built for <span className="font-sans font-semibold italic">practitioners.</span>
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="mt-4 lg:mt-6 max-w-lg mx-auto lg:mx-0 lg:ml-auto font-sans text-black text-base lg:text-xl leading-snug"
+            className="mt-3 lg:mt-6 max-w-lg ml-auto w-[70%] font-sans text-black text-[8px] lg:text-xl leading-snug"
           >
             We don’t ship to patients. Every gram is manufactured under GMP in the US and routed through
             chain-of-custody to clinics only.

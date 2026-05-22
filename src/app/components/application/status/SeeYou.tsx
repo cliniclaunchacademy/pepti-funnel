@@ -28,7 +28,7 @@ export default function SeeYou() {
       className="w-full flex items-center justify-center my-16 lg:my-32 lg:mt-40 px-4"
     >
       <div
-        className="relative w-full max-w-300 rounded-3xl lg:rounded-4xl px-6 py-10 lg:pl-16 lg:pr-125 lg:py-8 min-h-72 flex items-center"
+        className="relative w-full max-w-300 rounded-xl lg:rounded-4xl pl-4 pr-36 py-4 lg:pl-16 lg:pr-125 lg:py-8 lg:min-h-72 flex items-center"
         style={{
           backgroundImage: "linear-gradient(225deg, #4C453C 0%, #000000 100%)",
         }}
@@ -36,7 +36,7 @@ export default function SeeYou() {
         <div className="flex-1">
           <motion.h2
             variants={fadeUp}
-            className="font-sans text-5xl lg:text-9xl text-beige-primary font-medium leading-none text-center lg:text-left"
+            className="font-sans text-4xl lg:text-9xl text-beige-primary font-medium leading-none text-left"
           >
             See you on
             <br />
@@ -46,15 +46,15 @@ export default function SeeYou() {
 
         <motion.div
           variants={slideInRight}
-          className="hidden lg:block absolute right-0 bottom-0 w-[600px] pointer-events-none"
+          className="absolute right-0 bottom-0 w-[200px] overflow-hidden lg:w-[600px] lg:h-auto lg:overflow-visible lg:rounded-br-none pointer-events-none"
         >
           <Image
             src="/see-you.png"
             alt="Practitioner"
             width={2616}
             height={1792}
-            sizes="600px"
-            className="w-full h-auto"
+            sizes="(min-width: 1024px) 600px, 144px"
+            className="w-full h-full object-cover object-right-top lg:h-auto"
           />
         </motion.div>
       </div>

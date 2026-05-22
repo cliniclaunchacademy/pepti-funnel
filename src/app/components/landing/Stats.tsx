@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { motion, type Variants } from "framer-motion";
 
@@ -24,10 +24,10 @@ const stats = [
 const CORNER_OFFSET = 24;
 
 const cornerOffsets = [
-  { x: -CORNER_OFFSET, y: -CORNER_OFFSET }, // top-left
-  { x: CORNER_OFFSET, y: -CORNER_OFFSET }, // top-right
-  { x: -CORNER_OFFSET, y: CORNER_OFFSET }, // bottom-left
-  { x: CORNER_OFFSET, y: CORNER_OFFSET }, // bottom-right
+  { x: -CORNER_OFFSET, y: -CORNER_OFFSET },
+  { x: CORNER_OFFSET, y: -CORNER_OFFSET },
+  { x: -CORNER_OFFSET, y: CORNER_OFFSET },
+  { x: CORNER_OFFSET, y: CORNER_OFFSET },
 ];
 
 const grid: Variants = {
@@ -74,13 +74,21 @@ export function StatsBoard() {
               variants={tile}
               custom={cornerOffsets[index]}
               className={`
-                flex items-center gap-6 lg:gap-12 px-4 py-6 lg:px-10 lg:py-10
-                ${isTopRow ? "border-b" : !isLast ? "border-b lg:border-b-0" : ""}
+                relative
+                flex items-center justify-center lg:justify-start gap-6 lg:gap-12 px-4 py-6 lg:px-10 lg:py-10
                 ${isLeftColumn ? "lg:border-r lg:pl-0" : "lg:pr-0 lg:pl-40"}
                 ${isTopRow ? "lg:pt-0" : "lg:pb-0"}
                 border-[#858585]
               `}
             >
+              {/* Mobile 70% border */}
+              {(isTopRow || (!isLast && !isTopRow)) && (
+                <div className="absolute bottom-0 left-auto h-px w-[70%] bg-[#858585] lg:hidden" />
+              )}
+
+              {/* Desktop full borders */}
+              {isTopRow && <div className="hidden lg:block absolute bottom-0 left-0 w-full h-px bg-[#858585]" />}
+
               <h2 className="text-5xl lg:text-7xl leading-none font-medium font-sans text-[#E0BB83]">{stat.value}</h2>
 
               <div className="flex flex-col leading-[0.95]">

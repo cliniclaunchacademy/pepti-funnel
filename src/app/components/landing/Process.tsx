@@ -72,12 +72,17 @@ export default function Process() {
             <motion.div
               key={step.src}
               variants={item}
-              className={`group flex shrink items-center justify-center gap-4 ${
-                index === 1
-                  ? "border-y-2 lg:border-y-0 lg:border-x-2 border-gray-300 py-6 px-0 lg:py-0 lg:px-12 w-full lg:w-auto"
-                  : ""
+              className={`group relative flex shrink items-center justify-center gap-4 ${
+                index === 1 ? "lg:border-x-2 border-gray-300 py-6 px-0 lg:py-0 lg:px-12 w-full lg:w-auto" : ""
               }`}
             >
+              {index === 1 && (
+                <>
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-[70%] bg-gray-300 lg:hidden" />
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-[70%] bg-gray-300 lg:hidden" />
+                </>
+              )}
+
               <Image
                 src={step.src}
                 alt={step.alt}
