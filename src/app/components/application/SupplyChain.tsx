@@ -28,14 +28,14 @@ export default function SupplyChain() {
       className="w-full flex items-center justify-center my-16 lg:my-24 px-4"
     >
       <div
-        className="relative w-full max-w-300 rounded-2xl pl-25 pr-4 py-6 lg:pl-120 lg:pr-16 lg:py-11 lg:min-h-72 flex items-center overflow-hidden lg:overflow-visible"
+        className="relative w-full max-w-300 rounded-2xl pl-24 pr-4 py-6 lg:pl-120 lg:pr-16 lg:py-11 lg:min-h-72 flex items-center overflow-hidden lg:overflow-visible"
         style={{
           backgroundImage: "linear-gradient(225deg, #FFEFD1 0%, #D8B98F 100%)",
         }}
       >
         <motion.div
           variants={slideInLeft}
-          className="absolute left-0 top-auto bottom-0 w-45 lg:top-auto lg:bottom-0 lg:w-125 lg:h-auto pointer-events-none"
+          className="absolute -left-4 top-auto bottom-0 h-[200px] lg:top-auto lg:bottom-0 lg:w-125 lg:h-auto pointer-events-none"
         >
           <Image
             src="/doctor.png"
@@ -52,12 +52,24 @@ export default function SupplyChain() {
             variants={fadeUp}
             className="font-sans text-2xl lg:text-6xl text-end text-black font-medium leading-none lg:leading-none"
           >
-            Supply chain that doesn’t go quiet when patients are waiting.
+            Supply chain that{" "}
+            <span className="lg:hidden inline">
+              <br />
+            </span>{" "}
+            doesn’t go quiet{" "}
+            <span className="lg:hidden inline">
+              <br />
+            </span>
+            when patients{" "}
+            <span className="lg:hidden inline">
+              <br />
+            </span>{" "}
+            are waiting.
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="mt-3 lg:mt-6 max-w-lg ml-auto w-[70%] font-sans text-black text-[8px] lg:text-xl leading-snug"
+            className="mt-3 lg:mt-6 max-w-lg ml-auto w-[74%] lg:w-[70%] font-sans text-black text-[8px] lg:text-xl leading-snug"
           >
             Every batch is third-party tested. Every order moves with chain-of-custody from a single GMP facility in the
             US. Every clinic gets a real account manager — not a ticket queue.

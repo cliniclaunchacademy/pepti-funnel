@@ -8,41 +8,17 @@ const steps: StepListItem[] = [
   {
     title: "Verify your practice details",
     subtitle: "and get your account activated",
-    icon: (
-      <Image
-        src="/Verification-Icon.svg"
-        alt=""
-        width={48}
-        height={48}
-        className="size-9 lg:size-12"
-      />
-    ),
+    icon: <Image src="/Verification-Icon.svg" alt="" width={48} height={48} className="size-6 lg:size-12" />,
   },
   {
     title: "Walk the full catalog",
     subtitle: "80+ peptides, pricing tiers, shipping timelines",
-    icon: (
-      <Image
-        src="/Catalog-Icon.svg"
-        alt=""
-        width={48}
-        height={48}
-        className="size-9 lg:size-12"
-      />
-    ),
+    icon: <Image src="/Catalog-Icon.svg" alt="" width={48} height={48} className="size-6 lg:size-12" />,
   },
   {
     title: "Place your first order",
     subtitle: "and lock in your supply chain",
-    icon: (
-      <Image
-        src="/Touch-Icon.svg"
-        alt=""
-        width={48}
-        height={48}
-        className="size-9 lg:size-12"
-      />
-    ),
+    icon: <Image src="/Touch-Icon.svg" alt="" width={48} height={48} className="size-6 lg:size-12" />,
   },
 ];
 
@@ -76,7 +52,7 @@ export default function FAQs() {
       className="w-full flex items-center justify-center my-16 lg:my-24 px-6 lg:px-0"
     >
       <div className="flex flex-col lg:flex-row items-start justify-center w-full max-w-300 gap-8 lg:gap-24">
-        <motion.div variants={slideInLeft} className="shrink w-full lg:w-auto">
+        <motion.div variants={slideInLeft} className="shrink w-full lg:w-auto text-center lg:text-left">
           <p className="font-sans text-black text-xs lg:text-lg tracking-[0.3rem] lg:tracking-[0.4rem] uppercase">
             Frequently Asked
           </p>
@@ -87,12 +63,12 @@ export default function FAQs() {
           >
             What we cover,
             <br />
-            <span className="text-beige-gradient font-awesome-serif italic">start to finish.</span>
+            <span className="text-beige-gradient font-sans lg:font-awesome-serif italic">start to finish.</span>
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="mt-4 lg:mt-8 font-sans text-black text-base lg:text-xl font-normal max-w-sm"
+            className="mt-4 lg:mt-8 font-sans text-black text-xs lg:text-xl font-normal max-w-sm"
           >
             Come ready with your practice name
             <span className="hidden lg:inline">

@@ -47,17 +47,17 @@ export default function FAQs() {
     >
       <div className="w-full max-w-300 flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
         <motion.div variants={slideInLeft} className="shrink w-full lg:w-auto lg:pt-8">
-          <p className="font-sans text-black text-xs lg:text-sm tracking-[0.3rem] lg:tracking-[0.4rem] uppercase">
+          <p className="font-sans text-black text-xs text-center lg:text-left lg:text-sm tracking-[0.3rem] lg:tracking-[0.4rem] uppercase">
             Frequently Asked
           </p>
 
-          <h2 className="mt-3 lg:mt-4 font-sans text-4xl lg:text-7xl text-black font-medium leading-none">
+          <h2 className="mt-3 lg:mt-4 font-sans text-4xl lg:text-7xl text-center lg:text-left text-black font-medium leading-none">
             The fine print,
             <br />
-            <span className="text-beige-gradient font-awesome-serif italic">up front.</span>
+            <span className="text-beige-gradient font-sans lg:font-awesome-serif italic">up front.</span>
           </h2>
 
-          <p className="mt-4 lg:mt-8 font-sans text-black text-base lg:text-lg leading-relaxed max-w-sm">
+          <p className="mt-4 lg:mt-8 font-sans text-black text-center lg:text-left text-sm lg:text-lg leading-relaxed max-w-sm">
             If your question isn’t here, your account manager will cover it on the call.
           </p>
         </motion.div>

@@ -33,7 +33,7 @@ export default function ApplicationSection() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
-      className="w-full flex items-center justify-center my-16 lg:my-24 px-6 lg:px-0"
+      className="w-full flex items-center justify-center my-12 lg:my-24 px-6 lg:px-0"
     >
       <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-300 gap-8 lg:gap-24">
         <motion.div variants={slideInLeft} className="shrink text-center lg:text-left">
@@ -48,7 +48,7 @@ export default function ApplicationSection() {
             </span>
           </motion.h1>
 
-          <motion.p variants={fadeUp} className="mt-4 lg:mt-6 font-sans text-black text-base lg:text-xl">
+          <motion.p variants={fadeUp} className="mt-4 lg:mt-6 font-sans text-black text-xs lg:text-xl">
             Book your account setup call. 30 minutes — we confirm your practice details, walk you through our catalog,
             and get your account live.
           </motion.p>

@@ -1,7 +1,7 @@
 export const TopHeader = () => {
   return (
     <section className="w-full bg-beige-primary p-2 text-center">
-      <p className="font-sans text-center text-black font-normal lg:text-sm text-[10px]">
+      <p className="font-sans text-center text-black font-normal lg:text-sm text-[8px]">
         US-Manufactured • GMP-Certified | 99.9% Purity | Professional Use Label
       </p>
     </section>

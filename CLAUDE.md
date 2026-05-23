@@ -35,6 +35,10 @@ The whole design surface is declared in one file. When adding tokens, utilities,
 
 Custom `@keyframes` **must live inside a `@theme` block** alongside the matching `--animate-*` token. Defining them at the top level can fail to register the animation utility. This file has a dedicated `@theme { @keyframes ... }` block for `marquee` for that reason — follow the same pattern for any new custom animation.
 
+### Prefer canonical spacing/size tokens over arbitrary values
+
+Tailwind v4's spacing scale lets you write any multiple of `0.25rem` (4px) as a numeric token — `h-50` is `200px`, `max-w-67.5` is `270px`, `w-45` is `180px`. The repo's ESLint setup has the `suggestCanonicalClasses` rule turned on, so it will warn whenever you write `h-[200px]` instead of `h-50` or `max-w-[270px]` instead of `max-w-67.5`. Reach for arbitrary values (`h-[160px]`, `text-[8px]`, `w-[70%]`) only when the value isn't on the 4px grid (or isn't a length at all, like `%` widths or sub-px font sizes).
+
 ## Component patterns
 
 Three component buckets — keep them separate:
@@ -57,11 +61,13 @@ When a route gets its own section components, give it its own bucket under `comp
 
 ### Branded gradient-card pattern
 
-Brand callout sections with a linear-gradient background and a decorative image follow a shared shape — `landing/Supply`, `application/SupplyChain`, `application/status/SeeYou`. The card is `relative w-full max-w-300 rounded-* px-* py-*` with the gradient applied via inline `style={{ backgroundImage: "linear-gradient(...)" }}`, an absolutely-positioned `<Image>` decoration (`absolute left-0 bottom-0` or `absolute right-0 bottom-0`), and a flex text column on the opposite side. Conventions:
+Brand callout sections with a linear-gradient background and a decorative image follow a shared shape — `landing/Supply`, `application/SupplyChain`, `application/status/SeeYou`. The card is `relative w-full max-w-300 rounded-* pl-* pr-*` with the gradient applied via inline `style={{ backgroundImage: "linear-gradient(...)" }}`, an absolutely-positioned `<Image>` on one side, and a text column on the opposite side. The image renders on **both mobile and desktop** — the card never collapses to a text-only layout. Conventions:
 
-- The image gets **`hidden lg:block`** — on mobile there's no room for it and the card flexes to a single text column. Don't try to stack the image and text vertically on mobile; every existing instance hides the image.
-- The reserved space for the image is the card padding (`lg:pl-105`, `lg:pl-120`, `lg:pr-125`) — on mobile this collapses to standard padding (`px-6`, `lg:pl-* lg:pr-*`).
-- Text alignment mirror-swaps: `text-center lg:text-end` (or `lg:text-left` depending on which side the image is on). When the text uses `ml-auto`/`mr-auto` on desktop to push it to one side, scope that with `lg:` so it centers on mobile (`mx-auto lg:ml-auto`).
+- Image container is `absolute {left|right}-0 bottom-0 w-{N} h-{N}` on mobile (narrow tall slot, e.g. `w-45 h-44`) and `lg:w-125 lg:h-auto` on desktop (wide, in-flow height). The image inside is `w-full h-full object-cover object-{top|right-top} lg:h-auto` — mobile crops to fill the tall narrow container via `object-cover` (use `object-top` / `object-right-top` to keep the subject visible); desktop's `lg:h-auto` restores natural aspect.
+- Card uses asymmetric padding to reserve a column for the image (`pl-25 pr-4 lg:pl-105 lg:pr-16` when image is on the left, mirrored when on the right). `min-h` is desktop-only (`lg:min-h-72`) — mobile lets content + the image container's height drive card height.
+- **Clipping**: when the image must extend above the card (head poking out, `SeeYou`), keep the card overflow-visible and put `overflow-hidden rounded-br-3xl` (or `-bl-`) on the image container so its corner matches the card. When the image must stay inside the rounded card (`Supply`, `SupplyChain`), put `overflow-hidden lg:overflow-visible` on the **card** itself so mobile clips and desktop allows the natural overflow.
+- Text alignment is the SAME on mobile and desktop (`text-end` or `text-left`) — the side-image layout pushes mobile text to one side, so don't center-on-mobile. Body copy uses `ml-auto`/`mr-auto` + an explicit `w-[N%]` to keep the line length inside the narrowed text column.
+- Mobile text sizes are noticeably smaller than the stacked-two-column pattern (heading `text-2xl`, body can go as small as `text-[8px]`) because the text column is only ~50-60% of the card width.
 
 ### Server vs client components
 
@@ -86,7 +92,7 @@ App Router defaults to server components — keep them server-rendered unless th
 - `public/` holds static assets served at `/`. Prefer `next/image` with intrinsic `width`/`height` props (real source dimensions) plus `className="w-... h-auto"` for display sizing — Next.js needs intrinsic dimensions to prevent CLS and to pick the right optimized variant.
 - For bespoke gradients that don't match `bg-beige-gradient` (which is the 90deg `#F2D6A2 → #A87C3D` brand gradient), apply an inline `style={{ backgroundImage: "linear-gradient(...)" }}` rather than adding one-off Tailwind classes or new `@utility` declarations. See `Supply.tsx` for a 225deg variant.
 - **Full-bleed pages** (a sub-page that wants to break out of the `<main className="mt-10 lg:mt-20 max-w-400 ...">` chrome) use a flow-layered pattern, not `position: fixed`. See `ClosedPage.tsx`: a `relative` section with **responsive** negative margins (`-mt-10 lg:-mt-20 -mb-16 lg:-mb-32`) to bleed past the layout's top offset and bottom Copyright padding (both of which are responsive), the bg `<Image>` swaps layout mode by viewport (see next bullet), and a content layer that mirror-swaps with it. Don't use `fixed inset-0` for backgrounds: it scroll-pins the bg and was rejected for this page. The bg image scrolls with the page like any other element.
-- **Responsive image-swap for full-bleed bg** (`ClosedPage.tsx`): the design needs the bg image to display *fully* (intrinsic aspect, no crop) on desktop, but the same image is roughly square — on mobile it can't contain the taller stacked content. Solution: swap layout modes on the same `<Image>` via responsive overrides — `absolute inset-0 w-full h-full object-cover lg:relative lg:inset-auto lg:h-auto`. Pair with content that mirror-swaps: `relative lg:absolute lg:inset-0`. Add `bg-black` (or matching dark color) on the parent `<section>` so any uncovered area still reads as part of the design. Result: mobile gets a cover-fill bg with content in normal flow; desktop gets the original in-flow image with absolute content overlay.
+- **Dual-source bg for full-bleed full-screen pages** (`ClosedPage.tsx`): a portrait mobile bg and a landscape/square desktop bg are different enough that one `<Image>` with responsive overrides can't serve both. Render two `<Image>` elements with different `src` — mobile source `block lg:hidden`, desktop source `hidden lg:block` — and put `absolute inset-0 w-full h-full object-cover` on both so each fills the section in its own viewport. Section uses `min-h-screen` for true full-screen plus `bg-black` (or matching dark color) so any uncovered slivers blend in. Content overlay stays the mirror-swap pattern: `relative lg:absolute lg:inset-0` with `min-h-screen lg:min-h-0` so mobile's relative-flow content also fills the viewport.
 
 ## Responsive conventions
 
@@ -125,3 +131,18 @@ ${isTopRow ? "border-b" : !isLast ? "border-b lg:border-b-0" : ""}
 ```
 
 Don't try to additively layer them. Same gotcha applies to any pair of Tailwind utilities that touch the same CSS property at different specificity (e.g. `text-base lg:text-base` vs `lg:text-lg`).
+
+### Short mobile dividers between stacked items
+
+When a 2×N grid collapses to a single column (`landing/Stats`, `application/StatsBoard`) or a row of equal items stacks vertically (`landing/Process`, `application/WhatNext`), the dividers between items shouldn't run edge-to-edge on mobile — they're shorter and centered. Render them as absolutely-positioned `<div>` elements inside each item, **not** as `border-b` / `border-y` utilities:
+
+```tsx
+<div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-[70%] bg-[#858585] lg:hidden" />
+```
+
+- The item needs `relative` so the absolute divider anchors to it.
+- Use `h-px` for thin (Stats-style) dividers, `h-0.5` for thicker (Process/WhatNext-style) dividers — pick to match the original `border-b` / `border-y-2` widths.
+- Divider width depends on the parent column width, **not** a fixed value. `Stats` / `StatsBoard` use `w-[70%]` because each item is full-width. `Process` / `WhatNext` use `w-[30%]` because their items sit inside a narrow `max-w-67.5` (270px) column that contains an icon + label row — a 70% divider there spans almost the whole label. Pick the percentage so the divider looks visually centered under the content stack, not edge-to-edge.
+- For the middle item of a 3-item row that stacks vertically (needs dividers above *and* below), render two divs — `top-0` and `bottom-0` — each `lg:hidden`.
+- Desktop full-length borders use the original `lg:border-b` / `lg:border-r` / `lg:border-x-2` utilities, applied conditionally to the correct items. Both layers coexist: the `lg:hidden` divs only render below `lg:`, the `lg:border-*` classes only render at `lg:`.
+- Don't use `after:` pseudo-elements with `lg:after:hidden` for this — pseudo display overrides are flaky in this stack, and pseudo-elements can't be conditionally omitted per-item the way a JSX div can.

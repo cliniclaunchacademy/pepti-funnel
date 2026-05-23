@@ -33,12 +33,12 @@ export default function SuccessApplication() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
-      className="w-full flex items-center justify-center my-16 lg:my-24 px-6 lg:px-0"
+      className="w-full flex items-center justify-center my-12 lg:my-24 px-6 lg:px-0"
     >
       <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-300 gap-8 lg:gap-16">
         <motion.div variants={slideInLeft} className="shrink text-center lg:text-left">
           <Button className="mb-4 lg:mb-6 flex items-center font-normal gap-1 mx-auto lg:mx-0">
-            Booked <CircleCheck fill="#000" color="#fff1d9" />
+            Application Received <CircleCheck fill="#000" color="#fff1d9" />
           </Button>
           <motion.h1 variants={fadeUp} className="font-sans text-3xl lg:text-6xl text-black font-medium">
             <span className="text-beige-gradient font-sans italic pr-2">You’re booked.</span>

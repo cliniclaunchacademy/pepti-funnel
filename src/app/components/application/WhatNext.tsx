@@ -16,19 +16,19 @@ const steps: ProcessStep[] = [
     src: "/application-process-1.png",
     alt: "Application reviewed",
     label: "We Review Your Practice and confirm your clinic is a right fit.",
-    imgClass: "w-16 h-auto",
+    imgClass: "w-12 lg:w-16 h-auto",
   },
   {
     src: "/application-process-2.png",
     alt: "Private catalog & pricing",
     label: "We Walk You Through the Catalog of our 80+ peptides.",
-    imgClass: "w-20 h-auto",
+    imgClass: "w-12 lg:w-20 h-auto",
   },
   {
     src: "/application-process-3.png",
     alt: "Place your first order",
     label: "Your Account Goes Live and is activated same day",
-    imgClass: "w-16 h-auto",
+    imgClass: "w-12 lg:w-16 h-auto",
   },
 ];
 
@@ -60,24 +60,24 @@ export default function WhatNext() {
       <div className="flex items-center justify-center flex-col w-full max-w-300">
         <motion.h2
           variants={heading}
-          className="font-sans text-black font-normal text-base lg:text-xl tracking-[0.3rem] lg:tracking-[0.4rem] leading-none uppercase text-center"
+          className="font-sans text-black font-normal text-xs lg:text-xl tracking-[0.3rem] lg:tracking-[0.4rem] leading-none uppercase text-center"
         >
           Here’s what happens next
         </motion.h2>
 
-        <div className="flex flex-col lg:flex-row items-center justify-center w-full py-8 lg:py-12 lg:pt-8 gap-6 lg:gap-8">
+        <div className="flex flex-col lg:flex-row items-center justify-center max-w-67.5 lg:max-w-full py-8 lg:py-12 lg:pt-8 gap-2 lg:gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={step.src}
               variants={item}
-              className={`group relative flex shrink items-center justify-center gap-4 ${
-                index === 1 ? "lg:border-x-2 border-gray-300 py-6 px-0 lg:py-0 lg:px-12 w-full lg:w-auto" : ""
+              className={`group relative flex shrink items-center justify-center gap-6 lg:gap-4 ${
+                index === 1 ? "lg:border-x-2 border-gray-300 py-4 px-0 lg:py-0 lg:px-12 w-full lg:w-auto" : ""
               }`}
             >
               {index === 1 && (
                 <>
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-[70%] bg-gray-300 lg:hidden" />
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-[70%] bg-gray-300 lg:hidden" />
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-[30%] bg-gray-300 lg:hidden" />
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-[30%] bg-gray-300 lg:hidden" />
                 </>
               )}
 
@@ -97,7 +97,7 @@ export default function WhatNext() {
               />
 
               <h4
-                className={`font-sans text-black font-normal text-base lg:text-lg leading-relaxed ${
+                className={`font-sans text-black font-medium text-[11px] lg:text-lg leading-relaxed ${
                   step.labelClass ?? ""
                 }`}
               >

@@ -31,17 +31,26 @@ export default function Questions() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
-      className="w-full flex items-center justify-center my-16 lg:my-24 px-6 lg:px-0"
+      className="w-full flex items-center justify-center my-16 lg:my-24 px-10 lg:px-0"
       id="questions"
     >
       <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-300 gap-8 lg:gap-16">
         <motion.div variants={slideInLeft} className="shrink text-center lg:text-left">
           <motion.h1 variants={fadeUp} className="font-sans text-4xl lg:text-8xl text-black font-medium">
-            <span className="text-beige-gradient font-awesome-serif italic pr-2">3 Questions</span> Then we get you
-            supplied.
+            <span className="text-beige-gradient font-sans font-bold lg:font-normal lg:font-awesome-serif italic pr-2">
+              3 Questions
+              <span className="lg:hidden inline">
+                . <br />
+              </span>{" "}
+            </span>{" "}
+            Then we get{" "}
+            <span className="lg:hidden inline">
+              <br />
+            </span>{" "}
+            you supplied.
           </motion.h1>
 
-          <motion.p variants={fadeUp} className="mt-6 lg:mt-12 font-sans text-black text-base lg:text-xl">
+          <motion.p variants={fadeUp} className="mt-6 lg:mt-12 font-sans text-black text-[10px] lg:text-xl">
             This application is for licensed medical practices only. We use it to verify your eligibility and to match
             the right account manager to your practice. Submissions are routed direct — no spam, no D2C.
           </motion.p>

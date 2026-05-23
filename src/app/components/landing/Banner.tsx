@@ -46,13 +46,13 @@ export default function Banner() {
   const router = useRouter();
 
   return (
-    <section className="relative w-full mt-8 lg:mt-16 px-10 lg:px-0 overflow-hidden min-h-[460px] lg:min-h-162.5 flex justify-center">
+    <section className="relative w-full mt-8 lg:mt-16 px-8 pb-[140px] lg:px-0 overflow-hidden lg:min-h-162.5 flex justify-center">
       <motion.div
         variants={slideInLeft}
         initial="hidden"
         whileInView="show"
         viewport={viewport}
-        className="absolute bottom-0 overflow-hidden h-57.5 lg:h-137.5 left-0 w-auto lg:w-[28%] pointer-events-none select-none"
+        className="absolute bottom-0 overflow-hidden w-auto lg:h-137.5 h-[200px] left-0 lg:w-[28%] pointer-events-none select-none"
       >
         <Image
           src="/left-banner-img.png"
@@ -71,7 +71,7 @@ export default function Banner() {
         initial="hidden"
         whileInView="show"
         viewport={viewport}
-        className="absolute bottom-0 overflow-hidden h-57.5 lg:h-137.5 right-0 w-auto lg:w-[28%] pointer-events-none select-none"
+        className="absolute bottom-0 overflow-hidden w-auto lg:h-137.5 h-[200px] right-0 lg:w-[28%] pointer-events-none select-none"
       >
         <Image
           src="/right-banner-img.png"
@@ -98,7 +98,11 @@ export default function Banner() {
         className="relative z-10 flex flex-col gap-6 lg:gap-6 items-center text-center w-full max-w-7xl mx-auto"
       >
         <motion.h1 variants={fadeUp} className="font-sans text-[34px] leading-[1.1] lg:text-7xl text-black font-medium">
-          The peptide supplier powering{" "}
+          The peptide
+          <span className="inline lg:hidden">
+            <br />
+          </span>
+          supplier powering{" "}
           <span className="inline">
             <br />
           </span>{" "}
@@ -109,11 +113,19 @@ export default function Banner() {
         </motion.h1>
 
         <motion.p variants={fadeUp} className="font-sans text-black font-normal text-xs lg:text-xl">
-          80+ pharmaceutical-grade peptides. 2-day fulfilment. 99.9% purity, COA on{" "}
+          80+ pharmaceutical-grade peptides. 2-day{" "}
+          <span className="inline lg:hidden">
+            <br />
+          </span>{" "}
+          fulfilment. 99.9% purity, COA on{" "}
           <span className="hidden lg:inline">
             <br />
           </span>{" "}
-          every batch. Built for licensed clinics, med spas, and practitioners.
+          every batch. Built{" "}
+          <span className="inline lg:hidden">
+            <br />
+          </span>{" "}
+          for licensed clinics, med spas, and practitioners.
         </motion.p>
 
         <div className="space-y-2 lg:space-y-4">
