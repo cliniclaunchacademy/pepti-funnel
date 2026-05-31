@@ -37,9 +37,9 @@ export default function SuccessApplication() {
     >
       <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-300 gap-8 lg:gap-16">
         <motion.div variants={slideInLeft} className="shrink text-center lg:text-left">
-          <Button className="mb-4 lg:mb-6 flex items-center font-normal gap-1 mx-auto lg:mx-0">
+          {/* <Button className="mb-4 lg:mb-6 flex items-center font-normal gap-1 mx-auto lg:mx-0">
             Application Received <CircleCheck fill="#000" color="#fff1d9" />
-          </Button>
+          </Button> */}
           <motion.h1 variants={fadeUp} className="font-sans text-3xl lg:text-6xl text-black font-medium">
             <span className="text-beige-gradient font-sans italic pr-2">You’re booked.</span>
             <br />

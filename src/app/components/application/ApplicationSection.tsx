@@ -58,9 +58,9 @@ export default function ApplicationSection() {
       >
         <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-300 gap-8 lg:gap-24">
           <motion.div variants={slideInLeft} className="shrink text-center lg:text-left">
-            <Button className="mb-4 lg:mb-6 flex items-center font-normal gap-1 mx-auto lg:mx-0 cursor-default">
+            {/* <Button className="mb-4 lg:mb-6 flex items-center font-normal gap-1 mx-auto lg:mx-0 cursor-default">
               Application Received <CircleCheck fill="#000" color="#fff1d9" />
-            </Button>
+            </Button> */}
             <motion.h1 variants={fadeUp} className="font-sans text-4xl lg:text-7xl text-black font-medium">
               Your application is in.
               <span className="text-beige-gradient font-sans italic pr-2">
@@ -97,9 +97,7 @@ export default function ApplicationSection() {
       </motion.section>
 
       <div
-        className={`fixed inset-0 z-50 bg-black/90 flex-col p-3 lg:p-6 ${
-          isOpen ? "flex" : "hidden"
-        }`}
+        className={`fixed inset-0 z-50 bg-black/90 flex-col p-3 lg:p-6 ${isOpen ? "flex" : "hidden"}`}
         role="dialog"
         aria-modal={isOpen}
         aria-label="Booking calendar"
