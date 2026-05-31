@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import { motion, type Variants } from "framer-motion";
 
