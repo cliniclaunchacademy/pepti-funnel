@@ -4,7 +4,7 @@ import type { ClassValue } from "clsx";
 import { cn } from "@/lib/utils";
 
 const button = tv({
-  base: "inline-flex items-center justify-center font-sans font-medium transition-all rounded-full transition-colors transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-beige-deep focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  base: "inline-flex items-center justify-center font-sans font-medium transition-all rounded-full transition-colors transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-beige-deep focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   variants: {
     variant: {
       default: "bg-beige-primary text-black hover:bg-beige-secondary",

@@ -130,14 +130,18 @@ export default function Banner() {
 
         <div className="space-y-2 lg:space-y-4">
           <motion.div variants={fadeUp}>
-            <Button size="md" className="font-normal text-black" onClick={() => router.push("#questions")}>
-              Begin Application • 60 sec <ArrowRight size={24} className="ml-1 h-4 w-4 md:h-6 md:w-6" />
+            <Button
+              size="md"
+              className="font-normal cursor-pointer text-black"
+              onClick={() => router.push("#questions")}
+            >
+              start sourcing <ArrowRight size={24} className="ml-1 h-4 w-4 md:h-6 md:w-6" />
             </Button>
           </motion.div>
 
           <motion.p
             variants={fadeUp}
-            className="font-sans text-black font-normal text-[6px] lg:text-[10px] lg:text-xs lg:tracking-[0.3em] uppercase"
+            className="font-sans text-black font-normal text-[6px] lg:text-[10px] lg:text-xs lg:tracking-wider uppercase"
           >
             For licensed practices only
           </motion.p>

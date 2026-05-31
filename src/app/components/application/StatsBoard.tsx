@@ -75,7 +75,7 @@ export default function StatsBoard() {
               custom={cornerOffsets[index]}
               className={`
                 relative
-                flex items-center justify-center lg:justify-start gap-6 lg:gap-12 px-4 py-6 lg:px-10 lg:py-10
+                flex items-center justify-center lg:justify-start gap-2 lg:gap-12 px-4 py-5 lg:px-10 lg:py-10
                 ${isLeftColumn ? "lg:border-r lg:pl-0" : "lg:pr-0 lg:pl-40"}
                 ${isTopRow ? "lg:pt-0" : "lg:pb-0"}
                 border-[#858585]
@@ -89,9 +89,11 @@ export default function StatsBoard() {
               {/* Desktop full borders */}
               {isTopRow && <div className="hidden lg:block absolute bottom-0 left-0 w-full h-px bg-[#858585]" />}
 
-              <h2 className="text-5xl lg:text-7xl leading-none font-medium font-sans text-[#E0BB83]">{stat.value}</h2>
+              <h2 className="text-5xl w-1/2 lg:w-auto lg:text-7xl leading-none font-medium font-sans text-[#E0BB83]">
+                {stat.value}
+              </h2>
 
-              <div className="flex flex-col leading-[0.95]">
+              <div className="flex flex-col w-1/2 lg:w-auto leading-[0.95]">
                 {stat.label.map((line) => (
                   <span key={line} className="text-lg lg:text-3xl font-semibold tracking-tight text-black uppercase">
                     {line}

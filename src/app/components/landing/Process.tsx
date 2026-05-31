@@ -29,7 +29,6 @@ const steps: ProcessStep[] = [
     alt: "Process Step 3",
     label: "60 seconds of your time",
     imgClass: "w-16 h-auto",
-    labelClass: "tracking-widest",
   },
 ];
 
