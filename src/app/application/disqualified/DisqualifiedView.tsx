@@ -15,7 +15,7 @@ const fadeUp: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-export default function ClosedPage() {
+export default function DisqualifiedView() {
   return (
     <section className="relative w-full min-h-screen -mt-10 lg:-mt-20 -mb-16 lg:-mb-32 bg-black">
       <Image
