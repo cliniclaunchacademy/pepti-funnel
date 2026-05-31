@@ -28,38 +28,30 @@ const MobileSupplySection = () => {
       className="w-full items-center justify-center my-16 px-4 flex lg:hidden"
     >
       <div
-        className="relative w-full max-w-300 rounded-2xl pl-6 pr-6 py-8 flex items-center"
+        className="relative w-full max-w-300 rounded-2xl pl-6 pr-[88px] py-4 flex items-center"
         style={{
           backgroundImage: "linear-gradient(225deg, #FFEFD1 0%, #D8B98F 100%)",
         }}
       >
         <motion.div
           variants={slideInLeft}
-          className="absolute right-2 -top-40 bottom-0 w-64 z-20 pointer-events-none"
+          className="absolute -right-12 -top-40 bottom-0 w-[200px] z-20 pointer-events-none"
         >
           <Image
             src="/tube.png"
             alt="Vial"
             width={704}
             height={791}
-            sizes="280px"
             className="w-full h-full object-contain object-bottom"
           />
         </motion.div>
 
         <div className="relative z-10 flex-1 text-left">
-          <motion.h2
-            variants={fadeUp}
-            className="font-sans text-4xl text-left text-black font-medium leading-tight"
-          >
-            A supply chain built for{" "}
-            <span className="font-sans font-semibold italic">practitioners.</span>
+          <motion.h2 variants={fadeUp} className="font-sans text-2xl text-left text-black font-medium leading-tight">
+            A supply chain built for <span className="font-sans font-semibold italic">practitioners.</span>
           </motion.h2>
 
-          <motion.p
-            variants={fadeUp}
-            className="mt-6 font-sans text-black text-sm leading-snug"
-          >
+          <motion.p variants={fadeUp} className="mt-4 font-sans text-black text-[10px] leading-snug">
             We don’t ship to patients. Every gram is manufactured under GMP in the US and routed through
             chain-of-custody to clinics only.
             <br />
