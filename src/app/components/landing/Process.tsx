@@ -56,7 +56,7 @@ export default function Process() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
-      className="w-full flex items-center justify-center my-16 lg:my-24 px-6 lg:px-0"
+      className="w-full flex items-center justify-center my-16 lg:my-24 px-6 lg:px-0 lg:mt-0 mt-0"
     >
       <div className="flex items-center justify-center flex-col w-full max-w-300">
         <motion.h2
@@ -77,8 +77,8 @@ export default function Process() {
             >
               {index === 1 && (
                 <>
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-[30%] bg-gray-300 lg:hidden" />
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-[30%] bg-gray-300 lg:hidden" />
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-[100%] bg-gray-300 lg:hidden" />
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-[100%] bg-gray-300 lg:hidden" />
                 </>
               )}
 
@@ -98,7 +98,7 @@ export default function Process() {
               />
 
               <h4
-                className={`font-sans text-black font-medium text-sm lg:text-lg leading-relaxed ${
+                className={`font-sans text-black font-medium text-sm lg:text-lg leading-relaxed text-justify ${
                   step.labelClass ?? ""
                 }`}
               >

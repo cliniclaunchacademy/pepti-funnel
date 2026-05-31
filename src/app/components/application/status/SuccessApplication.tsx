@@ -40,13 +40,13 @@ export default function SuccessApplication() {
           {/* <Button className="mb-4 lg:mb-6 flex items-center font-normal gap-1 mx-auto lg:mx-0">
             Application Received <CircleCheck fill="#000" color="#fff1d9" />
           </Button> */}
-          <motion.h1 variants={fadeUp} className="font-sans text-3xl lg:text-6xl text-black font-medium">
+          <motion.h1 variants={fadeUp} className="font-sans text-3xl text-center lg:text-6xl text-black font-medium">
             <span className="text-beige-gradient font-sans italic pr-2">You’re booked.</span>
-            <br />
+            {/* <br /> */}
             Here’s how to make the most of your account setup call.
           </motion.h1>
 
-          <motion.p variants={fadeUp} className="mt-4 lg:mt-6 font-sans text-black text-base lg:text-2xl">
+          <motion.p variants={fadeUp} className="mt-4 lg:mt-6 text-center font-sans text-black text-base lg:text-2xl">
             Check your inbox for confirmation. Your call is reserved{" "}
             <span className="hidden lg:inline">
               <br />
@@ -55,10 +55,10 @@ export default function SuccessApplication() {
           </motion.p>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           variants={slideInRight}
           className="w-full lg:w-auto lg:min-w-125 lg:shrink-0 lg:grow aspect-4/3 bg-gray-400 rounded-md"
-        />
+        /> */}
       </div>
     </motion.section>
   );

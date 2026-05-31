@@ -17,7 +17,7 @@ const fadeUp: Variants = {
 
 export default function ClosedPage() {
   return (
-    <section className="relative w-full min-h-screen -mt-10 lg:-mt-20 -mb-16 lg:-mb-32 bg-black">
+    <section className="relative w-full min-h-screen -mt-10 lg:-mt-50 -mb-16 lg:-mb-32 bg-black">
       <Image
         src="/mobile-bg-application.png"
         alt=""

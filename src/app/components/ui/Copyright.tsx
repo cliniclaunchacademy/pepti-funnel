@@ -11,9 +11,7 @@ export default function Copyright() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="w-full bg-[#D4D4D4] text-center lg:p-4 py-1 mt-16 lg:mt-32"
     >
-      <p className="font-sans text-black text-[4px] lg:text-base font-normal">
-        © 2026 PeptiPharmaRX | For licensed medical professionals. Not for human consumption outside a clinical setting.
-      </p>
+      <p className="font-sans text-black text-xs lg:text-base font-normal">© 2026 PeptiPharmaRX</p>
     </motion.footer>
   );
 }

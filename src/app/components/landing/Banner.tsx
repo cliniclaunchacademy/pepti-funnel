@@ -113,8 +113,8 @@ export default function Banner() {
         </motion.h1>
 
         <motion.p variants={fadeUp} className="font-sans text-black font-normal text-xs lg:text-xl">
-          80+ pharmaceutical-grade peptides. 2-day{" "}
-          <span className="inline lg:hidden">
+          80+ peptides, 2-day fulfilment, 99% purity
+          {/* <span className="inline lg:hidden">
             <br />
           </span>{" "}
           fulfilment. 99.9% purity, COA on{" "}
@@ -125,7 +125,7 @@ export default function Banner() {
           <span className="inline lg:hidden">
             <br />
           </span>{" "}
-          for licensed clinics, med spas, and practitioners.
+          for licensed clinics, med spas, and practitioners. */}
         </motion.p>
 
         <div className="space-y-2 lg:space-y-4">
