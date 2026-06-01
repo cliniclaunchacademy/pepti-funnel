@@ -98,7 +98,7 @@ export default function Banner() {
         className="relative z-10 flex flex-col gap-6 lg:gap-6 items-center text-center w-full max-w-7xl mx-auto"
       >
         <motion.h1 variants={fadeUp} className="font-sans text-[34px] leading-[1.1] lg:text-7xl text-black font-medium">
-          The peptide
+          The peptide{" "}
           <span className="inline lg:hidden">
             <br />
           </span>
