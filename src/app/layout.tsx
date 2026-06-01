@@ -38,7 +38,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <TopHeader />
 
-        <main className="mt-10 lg:mt-20 max-w-lvw overflow-x-hidden lg:max-w-400 w-full mx-auto">
+        <main className="mt-10 lg:mt-20 max-w-lvw overflow-x-clip lg:max-w-400 w-full mx-auto">
           <>{children}</>
           <Copyright />
         </main>
