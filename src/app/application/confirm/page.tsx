@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TrackEvent } from "@/app/components/analytics/TrackEvent";
 import FAQs from "@/app/components/application/confirm/FAQs";
 import SeeYou from "@/app/components/application/confirm/SeeYou";
 import SuccessApplication from "@/app/components/application/confirm/SuccessApplication";
@@ -14,6 +15,8 @@ export const metadata: Metadata = {
 export default function ConfirmPage() {
   return (
     <>
+      <TrackEvent event="Schedule" />
+
       <PageHeader />
 
       <SuccessApplication />

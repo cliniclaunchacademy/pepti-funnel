@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { TopHeader } from "./components/ui/TopHeader";
 import Copyright from "./components/ui/Copyright";
+import { MetaPixel } from "./components/analytics/MetaPixel";
 
 const googleSansFlex = Google_Sans_Flex({
   variable: "--font-google-sans-flex",
@@ -36,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${googleSansFlex.variable} ${awesomeSerif.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <MetaPixel />
         <TopHeader />
 
         <main className="mt-10 lg:mt-20 max-w-lvw overflow-x-clip lg:max-w-400 w-full mx-auto">
