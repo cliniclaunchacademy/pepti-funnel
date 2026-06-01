@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TrackEvent } from "../components/analytics/TrackEvent";
 import ApplicationSection from "../components/application/ApplicationSection";
 import FAQs from "../components/application/FAQs";
 import StatsBoard from "../components/application/StatsBoard";
@@ -15,6 +16,8 @@ export const metadata: Metadata = {
 export default function ApplicationPage() {
   return (
     <>
+      <TrackEvent event="Lead" />
+
       <PageHeader />
 
       <ApplicationSection />
