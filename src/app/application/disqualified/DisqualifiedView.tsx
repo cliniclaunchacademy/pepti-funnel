@@ -41,7 +41,7 @@ export default function DisqualifiedView() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative lg:absolute lg:inset-0 min-h-screen lg:min-h-0 flex flex-col items-center text-center px-6 py-12 lg:pt-12 lg:pb-0"
+        className="relative lg:absolute lg:inset-0 min-h-screen lg:min-h-auto flex flex-col items-center text-center px-6 py-12 lg:pt-12 lg:pb-0"
       >
         <motion.div variants={fadeUp} className="mt-2 lg:mt-10">
           <PageHeader theme="light" />
