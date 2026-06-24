@@ -3,7 +3,6 @@ import { TrackEvent } from "@/app/components/analytics/TrackEvent";
 import FAQs from "@/app/components/application/confirm/FAQs";
 import SeeYou from "@/app/components/application/confirm/SeeYou";
 import SuccessApplication from "@/app/components/application/confirm/SuccessApplication";
-import VideoSection from "@/app/components/application/confirm/VideoSection";
 import { PageHeader } from "@/app/components/ui/PageHeader";
 
 export const metadata: Metadata = {
@@ -20,8 +19,6 @@ export default function ConfirmPage() {
       <PageHeader />
 
       <SuccessApplication />
-
-      <VideoSection />
 
       <FAQs />
 
