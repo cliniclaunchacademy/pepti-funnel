@@ -55,7 +55,7 @@ export default function Banner() {
         initial="hidden"
         whileInView="show"
         viewport={viewport}
-        className="absolute bottom-0 overflow-hidden w-auto lg:h-137.5 h-[200px] left-0 lg:w-[28%] pointer-events-none select-none"
+        className="absolute bottom-0 overflow-hidden w-auto lg:h-137.5 h-[200px] -left-6 lg:w-[28%] pointer-events-none select-none"
       >
         <Image
           src="/left-banner-img.png"
@@ -100,7 +100,10 @@ export default function Banner() {
         viewport={viewport}
         className="relative z-10 flex flex-col gap-6 lg:gap-6 items-center text-center w-full max-w-7xl mx-auto"
       >
-        <motion.h1 variants={fadeUp} className="font-sans text-[34px] leading-[1.1] lg:text-7xl text-black font-medium">
+        <motion.h1
+          variants={fadeUp}
+          className="font-sans text-[34px] leading-[1.1] lg:text-7xl text-black font-medium"
+        >
           The peptide{" "}
           <span className="inline lg:hidden">
             <br />
@@ -115,11 +118,20 @@ export default function Banner() {
           nationwide.
         </motion.h1>
 
-        <motion.div variants={fadeUp} className="w-full max-w-3xl rounded-2xl overflow-hidden">
-          <wistia-player media-id={WISTIA_MEDIA_ID} aspect="1.7777777777777777"></wistia-player>
+        <motion.div
+          variants={fadeUp}
+          className="w-full max-w-3xl rounded-2xl overflow-hidden"
+        >
+          <wistia-player
+            media-id={WISTIA_MEDIA_ID}
+            aspect="1.7777777777777777"
+          ></wistia-player>
         </motion.div>
 
-        <motion.p variants={fadeUp} className="font-sans text-black font-normal text-xs lg:text-xl">
+        <motion.p
+          variants={fadeUp}
+          className="font-sans text-black font-normal text-xs lg:text-xl"
+        >
           80+ peptides, 2-day fulfilment, 99% purity
           {/* <span className="inline lg:hidden">
             <br />
@@ -142,7 +154,8 @@ export default function Banner() {
               className="font-normal cursor-pointer text-black"
               onClick={() => router.push("#questions")}
             >
-              start sourcing <ArrowRight size={24} className="ml-1 h-4 w-4 md:h-6 md:w-6" />
+              start sourcing{" "}
+              <ArrowRight size={24} className="ml-1 h-4 w-4 md:h-6 md:w-6" />
             </Button>
           </motion.div>
 
@@ -155,8 +168,15 @@ export default function Banner() {
         </div>
       </motion.div>
 
-      <Script src="https://fast.wistia.com/player.js" strategy="afterInteractive" />
-      <Script src={`https://fast.wistia.com/embed/${WISTIA_MEDIA_ID}.js`} strategy="afterInteractive" type="module" />
+      <Script
+        src="https://fast.wistia.com/player.js"
+        strategy="afterInteractive"
+      />
+      <Script
+        src={`https://fast.wistia.com/embed/${WISTIA_MEDIA_ID}.js`}
+        strategy="afterInteractive"
+        type="module"
+      />
       <style>{`
         wistia-player[media-id='${WISTIA_MEDIA_ID}']:not(:defined) {
           background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${WISTIA_MEDIA_ID}/swatch');
