@@ -28,31 +28,48 @@ export default function SuccessApplication() {
       className="w-full flex flex-col items-center justify-center my-12 lg:my-24 px-6 lg:px-0"
     >
       <div className="flex flex-col items-center text-center w-full max-w-300 gap-10 lg:gap-16">
-        <motion.h1 variants={fadeUp} className="font-sans text-3xl lg:text-6xl text-black font-medium">
-          <span className="text-beige-gradient font-sans italic pr-2">You’re booked.</span>
+        <motion.h1
+          variants={fadeUp}
+          className="font-sans text-3xl lg:text-6xl text-black font-medium"
+        >
+          <span className="text-beige-gradient font-sans italic pr-2">
+            You’re booked.
+          </span>
           Here’s how to make the most of your account setup call.
         </motion.h1>
 
-        <motion.div variants={fadeUp} className="w-full max-w-3xl flex flex-col items-center gap-3 lg:gap-4">
+        <motion.div
+          variants={fadeUp}
+          className="w-full max-w-3xl flex flex-col items-center gap-3 lg:gap-4"
+        >
           <p className="font-sans text-beige-deep text-xs lg:text-sm font-semibold uppercase tracking-wider">
             Step 1
           </p>
-          <h2 className="font-sans text-black text-xl lg:text-3xl font-medium">What to expect on your call</h2>
+          <h2 className="font-sans text-black text-xl lg:text-3xl font-medium">
+            What to expect on your call
+          </h2>
           <div className="w-full mt-2 lg:mt-4 rounded-xl lg:rounded-2xl overflow-hidden">
-            <wistia-player media-id={WISTIA_MEDIA_ID} aspect="1.7777777777777777"></wistia-player>
+            <wistia-player
+              media-id={WISTIA_MEDIA_ID}
+              aspect="1.7777777777777777"
+            ></wistia-player>
           </div>
         </motion.div>
 
-        <motion.div variants={fadeUp} className="w-full max-w-3xl flex flex-col items-center gap-3 lg:gap-4">
+        <motion.div
+          variants={fadeUp}
+          className="w-full max-w-3xl flex flex-col items-center gap-3 lg:gap-4"
+        >
           <p className="font-sans text-beige-deep text-xs lg:text-sm font-semibold uppercase tracking-wider">
             Step 2
           </p>
           <h2 className="font-sans text-black text-xl lg:text-3xl font-medium">
-            Check your inbox for confirmation. Your call is reserved{" "}
+            {/* Check your inbox for confirmation. Your call is reserved{" "}
             <span className="hidden lg:inline">
               <br />
             </span>{" "}
-            — here’s exactly what to do before we speak.
+            — here’s exactly what to do before we speak. */}
+            please change this to - check your inbox and reply “yes”
           </h2>
           <Image
             src="/success-page-img.png"
@@ -65,8 +82,15 @@ export default function SuccessApplication() {
         </motion.div>
       </div>
 
-      <Script src="https://fast.wistia.com/player.js" strategy="afterInteractive" />
-      <Script src={`https://fast.wistia.com/embed/${WISTIA_MEDIA_ID}.js`} strategy="afterInteractive" type="module" />
+      <Script
+        src="https://fast.wistia.com/player.js"
+        strategy="afterInteractive"
+      />
+      <Script
+        src={`https://fast.wistia.com/embed/${WISTIA_MEDIA_ID}.js`}
+        strategy="afterInteractive"
+        type="module"
+      />
       <style>{`
         wistia-player[media-id='${WISTIA_MEDIA_ID}']:not(:defined) {
           background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${WISTIA_MEDIA_ID}/swatch');
