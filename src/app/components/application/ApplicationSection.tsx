@@ -25,7 +25,7 @@ const fadeUp: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const BOOKING_URL = "https://links.peptipharmarx.com/widget/booking/samNYJhZt9QujspDWwdN";
+const BOOKING_URL = "https://links.peptipharmarx.com/widget/booking/S3Xr4MNcuNZ2JGZarJjW";
 
 export default function ApplicationSection() {
   return (
@@ -55,7 +55,7 @@ export default function ApplicationSection() {
         <motion.div variants={slideInRight} className="w-full min-h-150 lg:min-h-200 rounded-2xl overflow-hidden">
           <iframe
             src={BOOKING_URL}
-            id="samNYJhZt9QujspDWwdN_inline"
+            id="S3Xr4MNcuNZ2JGZarJjW_1782617755055"
             scrolling="no"
             className="w-full h-full min-h-150 lg:min-h-200 border-0"
           />
