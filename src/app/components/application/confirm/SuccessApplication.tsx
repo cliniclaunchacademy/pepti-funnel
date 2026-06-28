@@ -64,11 +64,6 @@ export default function SuccessApplication() {
             Step 2
           </p>
           <h2 className="font-sans text-black text-xl lg:text-3xl font-medium">
-            {/* Check your inbox for confirmation. Your call is reserved{" "}
-            <span className="hidden lg:inline">
-              <br />
-            </span>{" "}
-            — here’s exactly what to do before we speak. */}
             please change this to - check your inbox and reply “yes”
           </h2>
           <Image
