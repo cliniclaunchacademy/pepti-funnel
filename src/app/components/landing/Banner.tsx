@@ -1,13 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Script from "next/script";
 import { useRouter } from "next/navigation";
 import { motion, type Variants } from "framer-motion";
 import { Button } from "../ui/Button";
 import { ArrowRight } from "lucide-react";
-
-const WISTIA_MEDIA_ID = "a3prp1sc0n";
 
 const textContainer: Variants = {
   hidden: {},
@@ -55,7 +52,7 @@ export default function Banner() {
         initial="hidden"
         whileInView="show"
         viewport={viewport}
-        className="absolute bottom-0 overflow-hidden w-auto lg:h-137.5 h-[200px] -left-6 lg:w-[28%] pointer-events-none select-none"
+        className="absolute bottom-0 overflow-hidden w-auto lg:h-137.5 h-[200px] left-0 lg:w-[28%] pointer-events-none select-none"
       >
         <Image
           src="/left-banner-img.png"
@@ -118,16 +115,6 @@ export default function Banner() {
           nationwide.
         </motion.h1>
 
-        <motion.div
-          variants={fadeUp}
-          className="w-full max-w-3xl rounded-2xl overflow-hidden"
-        >
-          <wistia-player
-            media-id={WISTIA_MEDIA_ID}
-            aspect="1.7777777777777777"
-          ></wistia-player>
-        </motion.div>
-
         <motion.p
           variants={fadeUp}
           className="font-sans text-black font-normal text-xs lg:text-xl"
@@ -167,24 +154,6 @@ export default function Banner() {
           </motion.p>
         </div>
       </motion.div>
-
-      <Script
-        src="https://fast.wistia.com/player.js"
-        strategy="afterInteractive"
-      />
-      <Script
-        src={`https://fast.wistia.com/embed/${WISTIA_MEDIA_ID}.js`}
-        strategy="afterInteractive"
-        type="module"
-      />
-      <style>{`
-        wistia-player[media-id='${WISTIA_MEDIA_ID}']:not(:defined) {
-          background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${WISTIA_MEDIA_ID}/swatch');
-          display: block;
-          filter: blur(5px);
-          padding-top: 56.25%;
-        }
-      `}</style>
     </section>
   );
 }
